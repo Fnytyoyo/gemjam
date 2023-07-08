@@ -14,11 +14,11 @@ public class GameMode : MonoBehaviour
 
     void Start()
     {
-        ActionInputMap.Add("0", ActionType.Interaction);
-        ActionInputMap.Add("1", ActionType.BuildMine);
-        ActionInputMap.Add("2", ActionType.BuildSpikes);
-        ActionInputMap.Add("3", ActionType.BuildCannon);
-        ActionInputMap.Add("4", ActionType.BuildJumpPad);
+        ActionInputMap.Add("1", ActionType.Interaction);
+        ActionInputMap.Add("2", ActionType.BuildMine);
+        ActionInputMap.Add("3", ActionType.BuildSpikes);
+        ActionInputMap.Add("4", ActionType.BuildCannon);
+        ActionInputMap.Add("5", ActionType.BuildJumpPad);
     }
 
     void Update()
@@ -30,12 +30,10 @@ public class GameMode : MonoBehaviour
                 if (Input.GetKeyDown(item.Key))
                 {
                     currentAction = item.Value;
+                    UnityEngine.Debug.Log("Action changed to: " + currentAction);
                     break;
                 }
             }
         }
-
-        
     }
-
 }
