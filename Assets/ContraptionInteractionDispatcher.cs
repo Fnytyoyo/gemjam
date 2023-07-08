@@ -151,8 +151,12 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
+        var chosenRotation = 0; // TODO(RCh): user should provide this 
+        if (gameMode.CanBuildOn(cellPos, chosenRotation) == false)
+        {
+            return;
+        }
 
-        // TODO(RCh): check if we can build here
 
         var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos), Quaternion.identity);
         playerTileObjectsMap.Add(cellPos, newObj);
@@ -164,7 +168,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        // TODO(RCh): get rotation from GameMode
+        // TODO(RCh): apply rotation here
         tilemap.SetTile(cellPos, component.tile);
 
         FindObjectOfType<GameMode>().ChangeItemCount(contraptionName, -1);

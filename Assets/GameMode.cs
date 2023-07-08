@@ -21,7 +21,7 @@ public class GameMode : MonoBehaviour
 
     public enum ActionType { Interaction, BuildMine, BuildSpikes, BuildCannon, BuildJumpPad };
 
-    public ActionType currentAction { get; private set;  } = ActionType.Interaction;
+    public ActionType currentAction { get; private set; } = ActionType.Interaction;
 
     private readonly Dictionary<string, ActionType> actionInputMap = new Dictionary<string, ActionType>();
     public ActionType ShortcutStringToAction(string shortcutString) => actionInputMap[shortcutString];
@@ -57,7 +57,7 @@ public class GameMode : MonoBehaviour
         actionInputMap.Add("3", ActionType.BuildSpikes);
         actionInputMap.Add("4", ActionType.BuildCannon);
         actionInputMap.Add("5", ActionType.BuildJumpPad);
-        
+
         currentLevelIdx = 0;
         LoadCurrentLevel();
         Unpause();
@@ -69,8 +69,8 @@ public class GameMode : MonoBehaviour
     {
         var currLevelGO = FindObjectOfType<Level>();
         Debug.Log(currLevelGO?.name);
-        
-        if(currLevelGO)
+
+        if (currLevelGO)
         {
             GameObject.Destroy(currLevelGO.gameObject);
         }
@@ -183,4 +183,48 @@ public class GameMode : MonoBehaviour
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(true);
     }
 
+    public bool CanBuildOn(Vector3Int gridCoords, int rotation)
+    {
+        var currLevel = Levels[currentLevelIdx];
+
+        if (currLevel.contraptionTilemap.GetTile(gridCoords) == true)
+        {
+            return false;
+        }
+
+        if (currLevel.wallsTilemap.GetTile(gridCoords) == true)
+        {
+            return false;
+        }
+
+        {
+            var neighbourCoords = gridCoords;
+
+            switch (rotation)
+            {
+                case 0:
+                    neighbourCoords.y -= 1;
+                    break;
+                case 1:
+                    neighbourCoords.x += 1;
+                    break;
+                case 2:
+                    neighbourCoords.y += 1;
+                    break;
+                case 3:
+                    neighbourCoords.x += -1;
+                    break;
+                default:
+                    Debug.Log("Unexpected rotation value.");
+                    return false;
+            }
+
+            if (currLevel.wallsTilemap.GetTile(neighbourCoords) == false)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

@@ -1752,7 +1752,7 @@ GameObject:
   - component: {fileID: 2274854489343170472}
   - component: {fileID: 354855168743626557}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2179,6 +2179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a01eb9b5ecbe049b421e03dc78df88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contraptionTilemap: {fileID: 1272871482870176562}
+  wallsTilemap: {fileID: 750953541755804515}
   Inventory:
   - ContraptionName: Mine
     ContraptionSprite: {fileID: 21300000, guid: 01aa3ce277af5484db854da428f08d82, type: 3}
