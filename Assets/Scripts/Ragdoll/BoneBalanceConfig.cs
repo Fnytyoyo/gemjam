@@ -10,5 +10,5 @@ public class BoneBalanceConfig : ScriptableObject
     public float getUpTime = 2.5f;
     public float velocityThreshold = 2f;
     public float maxForce = 75f;
-    public float getUpSpeed = 20f;
+    public float getUpSpeed = 15f;
 }
