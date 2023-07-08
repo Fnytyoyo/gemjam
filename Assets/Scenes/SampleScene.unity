@@ -548,6 +548,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3746777629900567681, guid: 4de94f667f30297408edd867a3175563, type: 3}
+      propertyPath: Levels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3746777629900567681, guid: 4de94f667f30297408edd867a3175563, type: 3}
+      propertyPath: Levels.Array.data[0]
+      value: 
+      objectReference: {fileID: 1463913799824849519, guid: 390a9f7259ffd1944a1a5bb74192ff24, type: 3}
+    - target: {fileID: -3746777629900567681, guid: 4de94f667f30297408edd867a3175563, type: 3}
+      propertyPath: Levels.Array.data[1]
+      value: 
+      objectReference: {fileID: 4560864344378317779, guid: 3a5a7325240454a478a42469e83cb39e, type: 3}
+    - target: {fileID: -3746777629900567681, guid: 4de94f667f30297408edd867a3175563, type: 3}
+      propertyPath: Levels.Array.data[2]
+      value: 
+      objectReference: {fileID: 6550935399034172921, guid: 54a5226ee6ff0ca449be586d15087e24, type: 3}
     - target: {fileID: 2642573143445862799, guid: 4de94f667f30297408edd867a3175563, type: 3}
       propertyPath: m_Name
       value: GameModeObject

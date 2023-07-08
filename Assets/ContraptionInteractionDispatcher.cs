@@ -37,6 +37,9 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     void Start()
     {
+        Camera.main.eventMask &= ~(1 << LayerMask.NameToLayer("Ragdoll"));
+
+
         tilePrefabsMap.Add("Mine", minePrefab);
         tilePrefabsMap.Add("JumpPad", jumpPadPrefab);
         tilePrefabsMap.Add("Spikes", spikesPrefab);
