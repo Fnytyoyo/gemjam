@@ -2942,7 +2942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Inventory.Array.data[0].Count
