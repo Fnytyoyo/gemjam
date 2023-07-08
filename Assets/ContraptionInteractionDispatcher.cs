@@ -17,6 +17,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     Tilemap tilemap;
     Vector3Int? lastPos = null;
 
+    private Vector3 cellHalfSize;
+
     public GameMode gameMode;
 
     public GameObject minePrefab;
@@ -74,9 +76,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         tilePrefabsMap.Add("Cannon", cannonPrefab);
 
         tilemap = gameObject.GetComponent<Tilemap>();
+        cellHalfSize = tilemap.cellSize/2;
         lastPos = null;
-
-        var cellHalfSize = tilemap.cellSize/2;
 
         for (int i = tilemap.cellBounds.xMin; i < tilemap.cellBounds.xMax; ++i)
         {
@@ -188,7 +189,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos), Quaternion.identity);
+        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos) + cellHalfSize, Quaternion.identity);
         playerTileObjectsMap.Add(cellPos, newObj);
 
         var component = newObj.GetComponent<ContraptionBase>();
