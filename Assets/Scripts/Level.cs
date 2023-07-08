@@ -16,10 +16,20 @@ public class Level : MonoBehaviour
         public string Shortcut;
     }
 
+    [Serializable]
+    public class StoryElement
+    {
+        [Multiline]
+        public string StoryText = "";
+        public float WaitBefore = 0.5f;
+    }
+
     public Tilemap contraptionTilemap;
     public Tilemap wallsTilemap;
 
     public List<ContraptionInventoryCount> Inventory = new List<ContraptionInventoryCount>();
+
+    public List<StoryElement> Story = new List<StoryElement> ();
 
     // Start is called before the first frame update
     void Start()

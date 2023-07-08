@@ -12,8 +12,12 @@ using Debug = UnityEngine.Debug;
 public class GameMode : MonoBehaviour
 {
     public bool IsPaused { get; private set; }
-    public bool IsInteractable => interactableCounter == 0;
-    private int interactableCounter = 0;
+    public bool IsInteractable => interactableBlockCounter == 0;
+    private int interactableBlockCounter = 0;
+
+    private int currentStoryIdx;
+    private bool isStoryPanelDisplayed;
+    private float storyTimer;
 
     int currentLevelIdx;
     public Level[] Levels;
@@ -58,18 +62,18 @@ public class GameMode : MonoBehaviour
         actionInputMap.Add("5", ActionType.BuildJumpPad);
 
         currentLevelIdx = 0;
-        LoadCurrentLevel();
-        Unpause();
 
-        interactableCounter = 0;
+        interactableBlockCounter = 0;
+        LoadLevel(currentLevelIdx);
     }
 
     void LoadLevel(int idx)
     {
-        var currLevelGO = FindObjectOfType<Level>();
-        Debug.Log(currLevelGO?.name);
+        interactableBlockCounter++;
 
-        if (currLevelGO)
+        var currLevelGO = FindObjectOfType<Level>();
+
+        if(currLevelGO)
         {
             GameObject.Destroy(currLevelGO.gameObject);
         }
@@ -92,6 +96,19 @@ public class GameMode : MonoBehaviour
         }
 
         FindObjectOfType<Inventory>().SetupInventory(newLevel.Inventory);
+
+        FindObjectOfType<Inventory>().gameObject.SetActive(false);
+
+        currentStoryIdx = 0;
+        if(newLevel.Story.Count == 0)
+        {
+            interactableBlockCounter--;
+        }
+        else
+        {
+            storyTimer = newLevel.Story[0].WaitBefore;
+        }
+        isStoryPanelDisplayed = false;
     }
 
     public bool IsInBuildingMode()
@@ -122,17 +139,55 @@ public class GameMode : MonoBehaviour
         {
             GameObject.FindObjectOfType<VictoryScreen>(true).gameObject.SetActive(true);
         }
-        interactableCounter++;
+        interactableBlockCounter++;
     }
 
     public void LoadCurrentLevel()
     {
-        interactableCounter--;
+        interactableBlockCounter--;
         LoadLevel(currentLevelIdx);
     }
 
     void Update()
     {
+        if (currentStoryIdx < Levels[currentLevelIdx].Story.Count)
+        {
+            if(isStoryPanelDisplayed)
+            {
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    currentStoryIdx++;
+                    isStoryPanelDisplayed = false;
+
+                    if(currentStoryIdx < Levels[currentLevelIdx].Story.Count)
+                    {
+                        storyTimer = Levels[currentLevelIdx].Story[currentStoryIdx].WaitBefore;
+                    }
+                    else
+                    {
+                        GameObject.FindObjectOfType<Inventory>(true).gameObject.SetActive(true);
+                        interactableBlockCounter--;
+                    }
+
+                    GameObject.FindObjectOfType<StoryArea>(true).gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                storyTimer -= Time.deltaTime;
+
+                if (storyTimer < 0 || Input.GetKeyDown(KeyCode.Space))
+                {
+                    var sa = GameObject.FindObjectOfType<StoryArea>(true);
+                    sa.gameObject.SetActive(true);
+                    sa.SetText(Levels[currentLevelIdx].Story[currentStoryIdx].StoryText);
+                    isStoryPanelDisplayed = true;
+                }
+            }
+
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (IsPaused)
@@ -175,7 +230,7 @@ public class GameMode : MonoBehaviour
     public void Unpause()
     {
         IsPaused = false;
-        interactableCounter--;
+        interactableBlockCounter--;
         Time.timeScale = 1;
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(false);
     }
@@ -183,7 +238,7 @@ public class GameMode : MonoBehaviour
     public void Pause()
     {
         IsPaused = true;
-        interactableCounter++;
+        interactableBlockCounter++;
         Time.timeScale = 0;
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(true);
     }

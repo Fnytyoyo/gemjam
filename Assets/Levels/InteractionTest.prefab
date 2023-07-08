@@ -2569,6 +2569,10 @@ PrefabInstance:
       value: InteractionTest
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Inventory.Array.data[0].Count
       value: 1
       objectReference: {fileID: 0}
@@ -2579,6 +2583,30 @@ PrefabInstance:
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Inventory.Array.data[2].Count
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].StoryText
+      value: Dupa Dupa
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[1].StoryText
+      value: Dupa Dupa Dupa
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[2].StoryText
+      value: "Ty\u017C dupa"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].WaitBefore
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[1].WaitBefore
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[2].WaitBefore
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8992398305686883328, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_RootOrder
