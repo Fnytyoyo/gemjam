@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ContraptionName: Mine
+  tile: {fileID: 11400000, guid: 53c80176235fcc84c87c4772cf242090, type: 2}
   explosionTime: 0.2
   basePower: 30
   readyColor: {r: 0.45740488, g: 0.8113208, b: 0.18752226, a: 0}
