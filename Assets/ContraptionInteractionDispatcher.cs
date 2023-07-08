@@ -173,6 +173,16 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         }
     }
 
+    public GameObject GetTileObject(Vector3Int gridCoords)
+    {
+        if (playerTileObjectsMap.ContainsKey(gridCoords)) 
+        {
+            return playerTileObjectsMap[gridCoords];
+        }
+
+        return tileObjectsMap[gridCoords];
+    }
+
     private void HandleTileInteraction(TileBase tile, Vector3Int cellPos)
     {
         if (tile != null)
@@ -204,11 +214,12 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                     rotation = 3;
                 }
 
-                var worldPos = tilemap.CellToWorld(cellPos);
+                var tileObject = GetTileObject(cellPos);
                 ContraptionBase component = null;
-                tileObjectsMap[cellPos].TryGetComponent<ContraptionBase>(out component);
+                tileObject.TryGetComponent<ContraptionBase>(out component);
                 if (component != null)
                 {
+                    var worldPos = tilemap.CellToWorld(cellPos);
                     component.OnInteract(worldPos, rotation);
                 }
             }
