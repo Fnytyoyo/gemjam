@@ -18,16 +18,16 @@ public class GameMode : MonoBehaviour
 
     public ActionType currentAction { get; private set;  } = ActionType.Interaction;
 
-    private Dictionary<string, ActionType> ActionInputMap = new Dictionary<string, ActionType>();
+    private readonly Dictionary<string, ActionType> actionInputMap = new Dictionary<string, ActionType>();
 
     void Start()
     {
-        ActionInputMap.Add("0", ActionType.Interaction);
-        ActionInputMap.Add("1", ActionType.BuildMine);
-        ActionInputMap.Add("2", ActionType.BuildSpikes);
-        ActionInputMap.Add("3", ActionType.BuildCannon);
-        ActionInputMap.Add("4", ActionType.BuildJumpPad);
-
+        actionInputMap.Add("1", ActionType.Interaction);
+        actionInputMap.Add("2", ActionType.BuildMine);
+        actionInputMap.Add("3", ActionType.BuildSpikes);
+        actionInputMap.Add("4", ActionType.BuildCannon);
+        actionInputMap.Add("5", ActionType.BuildJumpPad);
+        
         currentLevelIdx = 0;
         LoadLevel(currentLevelIdx);
     }
@@ -83,17 +83,15 @@ public class GameMode : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            foreach (var item in ActionInputMap)
+            foreach (var item in actionInputMap)
             {
                 if (Input.GetKeyDown(item.Key))
                 {
                     currentAction = item.Value;
+                    UnityEngine.Debug.Log("Action changed to: " + currentAction);
                     break;
                 }
             }
         }
-
-        
     }
-
 }
