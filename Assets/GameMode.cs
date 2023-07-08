@@ -103,6 +103,7 @@ public class GameMode : MonoBehaviour
         if(newLevel.Story.Count == 0)
         {
             interactableBlockCounter--;
+            GameObject.FindObjectOfType<Inventory>(true).gameObject.SetActive(true);
         }
         else
         {
