@@ -12,6 +12,8 @@ using Debug = UnityEngine.Debug;
 public class GameMode : MonoBehaviour
 {
     public bool IsPaused { get; private set; }
+    public bool IsInteractable => interactableCounter == 0;
+    private int interactableCounter = 0;
 
     int currentLevelIdx;
     public Level[] Levels;
@@ -34,6 +36,8 @@ public class GameMode : MonoBehaviour
         currentLevelIdx = 0;
         LoadCurrentLevel();
         Unpause();
+
+        interactableCounter = 0;
     }
 
     void LoadLevel(int idx)
@@ -80,16 +84,34 @@ public class GameMode : MonoBehaviour
         {
             GameObject.FindObjectOfType<VictoryScreen>(true).gameObject.SetActive(true);
         }
-        //TODO: Disable interaction
+        interactableCounter++;
     }
 
     public void LoadCurrentLevel()
     {
+        interactableCounter--;
         LoadLevel(currentLevelIdx);
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IsPaused)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+
+        if (!IsInteractable)
+        {
+            return;
+        }
+
         if (Input.anyKeyDown)
         {
             foreach (var item in actionInputMap)
@@ -102,23 +124,12 @@ public class GameMode : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(IsPaused)
-            {
-                Unpause();
-            }
-            else
-            {
-                Pause();
-            }
-        }
     }
 
     public void Unpause()
     {
         IsPaused = false;
+        interactableCounter--;
         Time.timeScale = 1;
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(false);
 
@@ -128,6 +139,7 @@ public class GameMode : MonoBehaviour
     public void Pause()
     {
         IsPaused = true;
+        interactableCounter++;
         Time.timeScale = 0;
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(true);
 

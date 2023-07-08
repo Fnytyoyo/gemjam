@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000099c8c636
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -420,7 +420,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3746777629900567681, guid: 4de94f667f30297408edd867a3175563, type: 3}
       propertyPath: Levels.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3746777629900567681, guid: 4de94f667f30297408edd867a3175563, type: 3}
       propertyPath: Levels.Array.data[0]

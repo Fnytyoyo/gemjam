@@ -72,6 +72,12 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(FindObjectOfType<GameMode>().IsInteractable == false)
+        {
+            _OverlayLayer.Clear();
+            return;
+        }
+
         var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         var tile = tilemap.GetTile(cellPos);
@@ -90,6 +96,11 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (FindObjectOfType<GameMode>().IsInteractable == false)
+        {
+            return;
+        }
+
         var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         var tile = tilemap.GetTile(cellPos);
 
