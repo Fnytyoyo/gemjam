@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &267907267
+--- !u!1001 &386893370
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -132,8 +132,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1272871482870176562, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 21300000, guid: 01aa3ce277af5484db854da428f08d82, type: 3}
+    - target: {fileID: 1272871482870176562, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_Data
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272871482870176562, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1272871482870176562, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_RefCount
@@ -141,15 +149,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272871482870176562, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_Tiles.Array.data[0].second.m_TileSpriteIndex
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1272871482870176562, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_Tiles.Array.data[1].second.m_TileSpriteIndex
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1272871482870176562, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_Tiles.Array.data[2].second.m_TileSpriteIndex
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4095047119871466724, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_Name
