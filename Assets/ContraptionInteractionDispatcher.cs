@@ -131,6 +131,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                 if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
                 {
                     _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
+                    _OverlayLayer.SetTileColor(cellPos, Color.green);
                 }
             }
         }
@@ -138,6 +139,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         if (gameMode.IsInBuildingMode())
         {
             _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
+            _OverlayLayer.SetTileColor(cellPos, Color.black);
         }
 
         lastPos = cellPos;

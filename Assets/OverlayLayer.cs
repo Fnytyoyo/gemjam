@@ -27,4 +27,10 @@ public class OverlayLayer : MonoBehaviour
         }
         gameObject.GetComponent<Tilemap>().SetTile(lastCell.Value, null);
     }
+
+    public void SetTileColor(Vector3Int cell, Color color)
+    {
+        gameObject.GetComponent<Tilemap>().SetTileFlags(cell, TileFlags.None);
+        gameObject.GetComponent<Tilemap>().SetColor(cell, color);
+    }
 }
