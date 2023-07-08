@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5587810660305740634}
   - component: {fileID: 4897370003411496001}
-  - component: {fileID: 5461214049095856929}
   - component: {fileID: 6677494667828631520}
   - component: {fileID: 3605230344703563354}
+  - component: {fileID: 3513352487401845826}
   m_Layer: 3
   m_Name: Ragdoll_Arm_L
   m_TagString: Untagged
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5165194511294046}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.371, y: 0.067, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: 0.106, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6711595859619071001}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4897370003411496001
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1427047122, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_Sprite: {fileID: -295900842, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,51 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5461214049095856929
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5165194511294046}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 0.25}
-    newSize: {x: 0.75, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.25}
-  m_EdgeRadius: 0
 --- !u!50 &6677494667828631520
 Rigidbody2D:
   serializedVersion: 4
@@ -174,8 +129,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.4314375, y: 0}
-  m_ConnectedAnchor: {x: -0.36856252, y: 0.5}
+  m_Anchor: {x: 0, y: 0.164}
+  m_ConnectedAnchor: {x: -0.19, y: 0.27}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -184,6 +139,41 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -170
     m_UpperAngle: 100
+--- !u!70 &3513352487401845826
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165194511294046}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.125, y: 0.40625}
+  m_Direction: 0
 --- !u!1 &63486660268416229
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,9 +184,9 @@ GameObject:
   m_Component:
   - component: {fileID: 38423125239255959}
   - component: {fileID: 4163871331959698315}
-  - component: {fileID: 6283854214212650734}
   - component: {fileID: 5335238750856565644}
   - component: {fileID: 2733275602497735222}
+  - component: {fileID: 8488193799893619397}
   m_Layer: 3
   m_Name: Ragdoll_Arm_R
   m_TagString: Untagged
@@ -211,14 +201,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63486660268416229}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071058, w: 0.7071078}
-  m_LocalPosition: {x: 0.372, y: 0.062, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19, y: 0.106, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6711595859619071001}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4163871331959698315
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -260,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: -50501116, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_Sprite: {fileID: 492891565, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -271,51 +261,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6283854214212650734
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63486660268416229}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 0.25}
-    newSize: {x: 0.75, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.25}
-  m_EdgeRadius: 0
 --- !u!50 &5335238750856565644
 Rigidbody2D:
   serializedVersion: 4
@@ -358,8 +303,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: -0.42658758, y: -0.0022334456}
-  m_ConnectedAnchor: {x: 0.37341243, y: 0.49776655}
+  m_Anchor: {x: 0, y: 0.164}
+  m_ConnectedAnchor: {x: 0.19, y: 0.27}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -368,6 +313,41 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -100
     m_UpperAngle: 170
+--- !u!70 &8488193799893619397
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63486660268416229}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.125, y: 0.40625}
+  m_Direction: 0
 --- !u!1 &1858637255317865427
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,10 +358,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4135981059409257930}
   - component: {fileID: 7331243462282732735}
-  - component: {fileID: 3050411919689580978}
   - component: {fileID: 1001987369777206949}
   - component: {fileID: 196466603295443865}
   - component: {fileID: 3321409528684883675}
+  - component: {fileID: 7005273044882406134}
   m_Layer: 3
   m_Name: Ragdoll_Leg_R
   m_TagString: Untagged
@@ -397,7 +377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858637255317865427}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -1.05, z: 0}
+  m_LocalPosition: {x: 0.096, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -444,8 +424,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -1756661658, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1447730505, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -456,51 +436,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3050411919689580978
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858637255317865427}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.75}
-    newSize: {x: 0.25, y: 0.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.75}
-  m_EdgeRadius: 0
 --- !u!50 &1001987369777206949
 Rigidbody2D:
   serializedVersion: 4
@@ -543,8 +478,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.0017063916, y: 0.42664403}
-  m_ConnectedAnchor: {x: 0.2517064, y: -0.6233559}
+  m_Anchor: {x: 0, y: 0.18}
+  m_ConnectedAnchor: {x: 0.096, y: -0.26999992}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -567,6 +502,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
   debugDowntime: 0
+--- !u!70 &7005273044882406134
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858637255317865427}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.125, y: 0.46875}
+  m_Direction: 0
 --- !u!1 &2370917404830059122
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,10 +547,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1714183734083863306}
   - component: {fileID: 8380659574451705456}
-  - component: {fileID: 5221155438222812163}
   - component: {fileID: 5669133059169581367}
   - component: {fileID: 7563920619760204964}
   - component: {fileID: 6074614508978678647}
+  - component: {fileID: 7959705062909749212}
   m_Layer: 3
   m_Name: Ragdoll_Leg_L
   m_TagString: Untagged
@@ -596,7 +566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2370917404830059122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -1.05, z: 0}
+  m_LocalPosition: {x: -0.096, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -643,8 +613,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -826368439, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1921158645, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -655,51 +625,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5221155438222812163
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2370917404830059122}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.75}
-    newSize: {x: 0.25, y: 0.75}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.75}
-  m_EdgeRadius: 0
 --- !u!50 &5669133059169581367
 Rigidbody2D:
   serializedVersion: 4
@@ -742,8 +667,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.0051191747, y: 0.42489058}
-  m_ConnectedAnchor: {x: -0.24488083, y: -0.6251094}
+  m_Anchor: {x: 0, y: 0.18}
+  m_ConnectedAnchor: {x: -0.096, y: -0.26999992}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -766,6 +691,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
   debugDowntime: 0
+--- !u!70 &7959705062909749212
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370917404830059122}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.125, y: 0.46875}
+  m_Direction: 0
 --- !u!1 &2538656914371495641
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,9 +736,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6748303025153396289}
   - component: {fileID: 8488041531559405334}
-  - component: {fileID: 8534171258138581978}
   - component: {fileID: 5846972945834635233}
   - component: {fileID: 358979738543187326}
+  - component: {fileID: 7265144402992390091}
   m_Layer: 3
   m_Name: Ragdoll_Hand_R
   m_TagString: Untagged
@@ -793,14 +753,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2538656914371495641}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071058, w: 0.7071078}
-  m_LocalPosition: {x: 0.3720031, y: -0.6380003, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19, y: -0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6711595859619071001}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8488041531559405334
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -842,7 +802,7 @@ SpriteRenderer:
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
   m_SortingOrder: 4
-  m_Sprite: {fileID: -1309730352, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_Sprite: {fileID: -1592304038, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -853,51 +813,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8534171258138581978
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2538656914371495641}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.25}
-    newSize: {x: 0.5, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.25}
-  m_EdgeRadius: 0
 --- !u!50 &5846972945834635233
 Rigidbody2D:
   serializedVersion: 4
@@ -940,8 +855,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.32500005, y: 0}
-  m_ConnectedAnchor: {x: 0.3750003, y: 0.0000011190768}
+  m_Anchor: {x: 0, y: 0.14}
+  m_ConnectedAnchor: {x: 0, y: -0.12599999}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -950,6 +865,41 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -160
     m_UpperAngle: 10
+--- !u!70 &7265144402992390091
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538656914371495641}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.125, y: 0.40625}
+  m_Direction: 0
 --- !u!1 &3408092596044721544
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,10 +910,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5672150684803856122}
   - component: {fileID: 7387588802093531730}
-  - component: {fileID: 3774600505138236683}
   - component: {fileID: 419873339206384073}
   - component: {fileID: 2871369831358613620}
   - component: {fileID: 8492826070540128737}
+  - component: {fileID: 7215184296161587837}
   m_Layer: 3
   m_Name: Ragdoll_Body
   m_TagString: Untagged
@@ -1026,8 +976,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 700521, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 976810378, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1038,51 +988,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3774600505138236683
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3408092596044721544}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 1.25}
-    newSize: {x: 0.75, y: 1.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.25}
-  m_EdgeRadius: 0
 --- !u!50 &419873339206384073
 Rigidbody2D:
   serializedVersion: 4
@@ -1138,6 +1043,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 60
   angularForce: 1000
+--- !u!70 &7215184296161587837
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3408092596044721544}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.375, y: 0.6875}
+  m_Direction: 0
 --- !u!1 &4391719166061305252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,10 +1088,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1281042067465531645}
   - component: {fileID: 4565135697777763130}
-  - component: {fileID: 3376222272645873491}
   - component: {fileID: 923629599561426293}
   - component: {fileID: 4147528498673011058}
   - component: {fileID: 2205404772201089640}
+  - component: {fileID: 1628172012319127747}
   m_Layer: 3
   m_Name: Ragdoll_Foot_R
   m_TagString: Untagged
@@ -1167,7 +1107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4391719166061305252}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -1.75, z: 0}
+  m_LocalPosition: {x: 0.096, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1215,7 +1155,7 @@ SpriteRenderer:
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 215408650, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_Sprite: {fileID: -883388933, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1226,51 +1166,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3376222272645873491
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4391719166061305252}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.5}
-    newSize: {x: 0.25, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!50 &923629599561426293
 Rigidbody2D:
   serializedVersion: 4
@@ -1313,8 +1208,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0.32500005}
-  m_ConnectedAnchor: {x: 0, y: -0.37499988}
+  m_Anchor: {x: 0, y: 0.17}
+  m_ConnectedAnchor: {x: 0, y: -0.18000019}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1337,6 +1232,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
   debugDowntime: 0
+--- !u!61 &1628172012319127747
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391719166061305252}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.125, y: 0.46875}
+    newSize: {x: 0.25, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.46875}
+  m_EdgeRadius: 0
 --- !u!1 &6160642481529810717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,10 +1287,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3811253331499381149}
   - component: {fileID: 2353969474707614502}
-  - component: {fileID: 5195369901624002409}
   - component: {fileID: 5594259348865120879}
   - component: {fileID: 2783790589599205161}
   - component: {fileID: 508277801496898520}
+  - component: {fileID: 4640081274452037925}
   m_Layer: 3
   m_Name: Ragdoll_Foot_L
   m_TagString: Untagged
@@ -1366,7 +1306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6160642481529810717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -1.75, z: 0}
+  m_LocalPosition: {x: -0.096, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1414,7 +1354,7 @@ SpriteRenderer:
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 1382337823, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_Sprite: {fileID: 378219539, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1425,51 +1365,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5195369901624002409
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6160642481529810717}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.5}
-    newSize: {x: 0.25, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!50 &5594259348865120879
 Rigidbody2D:
   serializedVersion: 4
@@ -1512,8 +1407,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0.32500005}
-  m_ConnectedAnchor: {x: 0, y: -0.37499988}
+  m_Anchor: {x: 0, y: 0.17}
+  m_ConnectedAnchor: {x: 0, y: -0.18000019}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1536,6 +1431,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
   debugDowntime: 0
+--- !u!61 &4640081274452037925
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160642481529810717}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.125, y: 0.46875}
+    newSize: {x: 0.25, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.46875}
+  m_EdgeRadius: 0
 --- !u!1 &6574429693128915985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,10 +1486,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2856016112388548040}
   - component: {fileID: 1797119422680826614}
-  - component: {fileID: 8497562932966439874}
   - component: {fileID: 553492100176402925}
   - component: {fileID: 1858080256212225380}
   - component: {fileID: 2261858952611240911}
+  - component: {fileID: 5726026920545586917}
   m_Layer: 3
   m_Name: Ragdoll_Head
   m_TagString: Untagged
@@ -1565,7 +1505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6574429693128915985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0.562, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1612,8 +1552,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 1461218255, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -1872114682, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1624,41 +1564,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8497562932966439874
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6574429693128915985}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.375
 --- !u!50 &553492100176402925
 Rigidbody2D:
   serializedVersion: 4
@@ -1701,8 +1606,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: -0.42707735}
-  m_ConnectedAnchor: {x: 0, y: 0.6229226}
+  m_Anchor: {x: 0, y: -0.24199998}
+  m_ConnectedAnchor: {x: 0, y: 0.32}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1725,6 +1630,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
   debugDowntime: 0
+--- !u!58 &5726026920545586917
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574429693128915985}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1 &7860279579350429582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,12 +1697,12 @@ Transform:
   - {fileID: 2856016112388548040}
   - {fileID: 5672150684803856122}
   - {fileID: 38423125239255959}
-  - {fileID: 5587810660305740634}
-  - {fileID: 1714183734083863306}
-  - {fileID: 4135981059409257930}
-  - {fileID: 8869743461815510171}
   - {fileID: 6748303025153396289}
+  - {fileID: 5587810660305740634}
+  - {fileID: 8869743461815510171}
+  - {fileID: 4135981059409257930}
   - {fileID: 1281042067465531645}
+  - {fileID: 1714183734083863306}
   - {fileID: 3811253331499381149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1789,9 +1729,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8869743461815510171}
   - component: {fileID: 3550907670192412088}
-  - component: {fileID: 622886494202964347}
   - component: {fileID: 4664571136471049938}
   - component: {fileID: 1031241730483351733}
+  - component: {fileID: 8109779693455601092}
   m_Layer: 3
   m_Name: Ragdoll_Hand_L
   m_TagString: Untagged
@@ -1806,14 +1746,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8080491711282756366}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.3761056, y: -0.632982, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.19, y: -0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6711595859619071001}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3550907670192412088
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1855,7 +1795,7 @@ SpriteRenderer:
   m_SortingLayerID: 918997145
   m_SortingLayer: 1
   m_SortingOrder: 4
-  m_Sprite: {fileID: 1085683306, guid: e28ae2b1987be854d9c9b68c40355803, type: 3}
+  m_Sprite: {fileID: 497333811, guid: 721ff74c74c70ae488073b8932db18b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1866,51 +1806,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &622886494202964347
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8080491711282756366}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.25}
-    newSize: {x: 0.5, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.25}
-  m_EdgeRadius: 0
 --- !u!50 &4664571136471049938
 Rigidbody2D:
   serializedVersion: 4
@@ -1953,8 +1848,8 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.32500005, y: 0}
-  m_ConnectedAnchor: {x: -0.3749818, y: 0.0051056296}
+  m_Anchor: {x: 0, y: 0.14}
+  m_ConnectedAnchor: {x: 0, y: -0.12599999}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1963,3 +1858,38 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -10
     m_UpperAngle: 160
+--- !u!70 &8109779693455601092
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080491711282756366}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.125, y: 0.40625}
+  m_Direction: 0

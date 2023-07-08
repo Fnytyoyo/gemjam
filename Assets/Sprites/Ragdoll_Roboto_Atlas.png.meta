@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5422ac0aab88b474a8862b3c8e63b012
+guid: 721ff74c74c70ae488073b8932db18b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -123,337 +123,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Level_Atlas_0
+      name: Ragdoll_Roboto_Head
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
+        x: 13
+        y: 41
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b754bfb4db7410046be250499759f3e2
-      internalID: 1954819781
+      spriteID: a28a7a02997458440b8564e6581752c0
+      internalID: -1872114682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_1
+      name: Ragdoll_Roboto_Leg_L
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 45
+        y: 33
+        width: 4
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a44333146d24c4b9a9c877efdb7636
-      internalID: 332908706
+      spriteID: f125703aabb883f40a951570447c6de4
+      internalID: 1921158645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_2
+      name: Ragdoll_Roboto_Leg_R
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
+        x: 51
+        y: 33
+        width: 4
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a816c3db2f1a76a47983d21dd97ae68c
-      internalID: 148653926
+      spriteID: 7d4755db5d27e9b4081aa0607ab637d9
+      internalID: 1447730505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_3
+      name: Ragdoll_Roboto_Arm_L
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 8
+        y: 26
+        width: 4
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bdd73b3b4a359448a693b55de55d721
-      internalID: -179615482
+      spriteID: 22a0e58335e0ad84f9f79aa34163314c
+      internalID: -295900842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_4
+      name: Ragdoll_Roboto_Body
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
+        x: 15
+        y: 18
+        width: 12
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b37508008601dc46b05a50f751c9015
-      internalID: 1302445357
+      spriteID: dd33105b61f19b64aab66e08f30b4601
+      internalID: 976810378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_5
+      name: Ragdoll_Roboto_Arm_R
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 30
+        y: 26
+        width: 4
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2c28e975e2c0c04ba8b16c4417744f7
-      internalID: 789726786
+      spriteID: c85f364a580f56547814c9d177fda954
+      internalID: 492891565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_6
+      name: Ragdoll_Roboto_Foot_L
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
+        x: 45
+        y: 16
+        width: 4
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91307562f350afe40994595e338de03a
-      internalID: -1399228791
+      spriteID: 2d270440af168d34a87a906b1c3b68ed
+      internalID: 378219539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_7
+      name: Ragdoll_Roboto_Foot_R
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 32
-        height: 32
+        x: 51
+        y: 16
+        width: 4
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd4ebeaea1b30ef4f81191a32a549325
-      internalID: 1242731018
+      spriteID: d30d05a377e745948bf48997d2ec343e
+      internalID: -883388933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_8
+      name: Ragdoll_Roboto_Hand_L
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
+        x: 8
+        y: 11
+        width: 4
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c3a77faa29e00945a11dcbef5a960fb
-      internalID: 1938032728
+      spriteID: eb52a245d0ad67d41b8c35da531429d4
+      internalID: 497333811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level_Atlas_9
+      name: Ragdoll_Roboto_Hand_R
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 30
+        y: 11
+        width: 4
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37f02cc09e17ed24d8853bef3285d7d4
-      internalID: -83000180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Level_Atlas_10
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56bcc1154e0718941af7404e91493be0
-      internalID: 1879883065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Level_Atlas_11
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d93e5339f6b04d44dacd584a334f36ab
-      internalID: -54572892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Level_Atlas_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e0ea96456e3fbb4db2ee5024e5e8717
-      internalID: 162628398
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Level_Atlas_13
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f377c3256c0bdc54e8dcb6d9e3a096ad
-      internalID: 1053183309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Level_Atlas_14
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff26704f42ab4a141a7b9a5190be701f
-      internalID: -939768885
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Level_Atlas_15
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b37c01765db6254ca2a3e5afad3fe48
-      internalID: 1127319867
+      spriteID: 19bbeff991c229e45b4ab82a790c18ec
+      internalID: -1592304038
       vertices: []
       indices: 
       edges: []
@@ -469,22 +343,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Level_Atlas_0: 1954819781
-      Level_Atlas_1: 332908706
-      Level_Atlas_10: 1879883065
-      Level_Atlas_11: -54572892
-      Level_Atlas_12: 162628398
-      Level_Atlas_13: 1053183309
-      Level_Atlas_14: -939768885
-      Level_Atlas_15: 1127319867
-      Level_Atlas_2: 148653926
-      Level_Atlas_3: -179615482
-      Level_Atlas_4: 1302445357
-      Level_Atlas_5: 789726786
-      Level_Atlas_6: -1399228791
-      Level_Atlas_7: 1242731018
-      Level_Atlas_8: 1938032728
-      Level_Atlas_9: -83000180
+      Ragdoll_Roboto_Arm_L: -295900842
+      Ragdoll_Roboto_Arm_R: 492891565
+      Ragdoll_Roboto_Body: 976810378
+      Ragdoll_Roboto_Foot_L: 378219539
+      Ragdoll_Roboto_Foot_R: -883388933
+      Ragdoll_Roboto_Hand_L: 497333811
+      Ragdoll_Roboto_Hand_R: -1592304038
+      Ragdoll_Roboto_Head: -1872114682
+      Ragdoll_Roboto_Leg_L: 1921158645
+      Ragdoll_Roboto_Leg_R: 1447730505
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
