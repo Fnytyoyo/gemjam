@@ -401,6 +401,10 @@ MonoBehaviour:
   _OverlayLayer: {fileID: 2890547207567390181}
   HoverTilePrefab: {fileID: 11400000, guid: 0a9734eb810909049b9d560e9e57dbe3, type: 2}
   InteractionPossiblePrevewColor: {r: 0.3578205, g: 1, b: 0, a: 1}
+  minePrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
+  jumpPadPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
+  spikesPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
+  cannonPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
 --- !u!114 &7168825256241412825
 MonoBehaviour:
   m_ObjectHideFlags: 0

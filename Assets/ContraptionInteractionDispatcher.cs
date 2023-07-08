@@ -17,6 +17,15 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     Tilemap tilemap;
     Vector3Int? lastPos = null;
 
+    public GameObject minePrefab;
+    public GameObject jumpPadPrefab;
+    public GameObject spikesPrefab;
+    public GameObject cannonPrefab;
+
+    public Dictionary<string, GameObject> tilePrefabsMap = new Dictionary<string, GameObject>();
+    
+    public Dictionary<Vector3Int, GameObject> tileObjectsMap = new Dictionary<Vector3Int, GameObject>();
+
     private string TrimTileName(string tileName)
     {
         int floorPos = tileName.IndexOf(TRIM_CHAR);
@@ -29,13 +38,38 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     void Start()
     {
-        foreach( var c in gameObject.GetComponents<ContraptionBase>())
+        tilePrefabsMap.Add("Mine", minePrefab);
+        tilePrefabsMap.Add("JumpPad", jumpPadPrefab);
+        tilePrefabsMap.Add("Spikes", spikesPrefab);
+        tilePrefabsMap.Add("Cannon", cannonPrefab);
+
+        foreach ( var c in gameObject.GetComponents<ContraptionBase>())
         {
             contraptionsMap.Add(c.ContraptionName, c);
         }
 
         tilemap = gameObject.GetComponent<Tilemap>();
         lastPos = null;
+
+        for (int i = tilemap.cellBounds.xMin; i < tilemap.cellBounds.xMax; ++i)
+        {
+            for (int j = tilemap.cellBounds.yMin; j < tilemap.cellBounds.yMax; ++j)
+            {
+                var tileGridCoords = new Vector3Int(i, j, 0);
+                var tile = tilemap.GetTile(tileGridCoords);
+                if (tile != null)
+                {
+                    if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
+                    {
+                        var prefabToSpawn = tilePrefabsMap[TrimTileName(tile.name)];
+                        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords), Quaternion.identity);
+
+                        tileObjectsMap.Add(tileGridCoords, newObj);
+                    }
+                }
+
+            }
+        }
     }
 
     // Update is called once per frame
