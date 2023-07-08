@@ -15,15 +15,12 @@ public class Mine : ContraptionBase
     public ParticleSystem particles;
     
     private Vector2 position;
-    private SpriteRenderer background;
 
     private bool readyToUse;
     
     void Start()
     {
         position = new Vector2(this.transform.position.x, this.transform.position.y);
-        background = GetComponent<SpriteRenderer>();
-        background.color = readyColor;
         readyToUse = true;
     }
 
@@ -63,7 +60,6 @@ public class Mine : ContraptionBase
         {
             Debug.Log("Mine explosion");
             readyToUse = false;
-            background.color = usedColor;
             particles.Play();
             StartCoroutine(Explode());
         }
