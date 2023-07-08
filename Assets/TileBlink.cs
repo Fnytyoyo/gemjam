@@ -33,6 +33,8 @@ public class TileBlink : MonoBehaviour
     {
         var pos = Map.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
+        Map.SetColor(pos, Color.green);
+
         timer += Time.deltaTime;
 
         if(timer >= Period)
