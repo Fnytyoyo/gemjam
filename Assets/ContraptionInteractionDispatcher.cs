@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 
 public class ContraptionInteractionDispatcher : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     Tilemap tilemap;
     Vector3Int? lastPos = null;
 
+    public GameMode gameMode;
+
     public GameObject minePrefab;
     public GameObject jumpPadPrefab;
     public GameObject spikesPrefab;
@@ -24,6 +28,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     public Dictionary<string, GameObject> tilePrefabsMap = new Dictionary<string, GameObject>();
     
     public Dictionary<Vector3Int, GameObject> tileObjectsMap = new Dictionary<Vector3Int, GameObject>();
+
+    public Dictionary<Vector3Int, GameObject> playerTileObjectsMap = new Dictionary<Vector3Int, GameObject>();
 
     private string TrimTileName(string tileName)
     {
@@ -37,8 +43,9 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     void Start()
     {
-        Camera.main.eventMask &= ~(1 << LayerMask.NameToLayer("Ragdoll"));
+        gameMode = FindObjectOfType<GameMode>();
 
+        Camera.main.eventMask &= ~(1 << LayerMask.NameToLayer("Ragdoll"));
 
         tilePrefabsMap.Add("Mine", minePrefab);
         tilePrefabsMap.Add("JumpPad", jumpPadPrefab);
@@ -48,18 +55,21 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         tilemap = gameObject.GetComponent<Tilemap>();
         lastPos = null;
 
+        var cellHalfSize = tilemap.cellSize;
+
         for (int i = tilemap.cellBounds.xMin; i < tilemap.cellBounds.xMax; ++i)
         {
             for (int j = tilemap.cellBounds.yMin; j < tilemap.cellBounds.yMax; ++j)
             {
                 var tileGridCoords = new Vector3Int(i, j, 0);
                 var tile = tilemap.GetTile(tileGridCoords);
+
                 if (tile != null)
                 {
                     if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
                     {
                         var prefabToSpawn = tilePrefabsMap[TrimTileName(tile.name)];
-                        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords), Quaternion.identity);
+                        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords) - cellHalfSize, Quaternion.identity);
 
                         tileObjectsMap.Add(tileGridCoords, newObj);
                     }
@@ -93,6 +103,72 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         var tile = tilemap.GetTile(cellPos);
 
+        switch (gameMode.currentAction)
+        {
+            case GameMode.ActionType.Interaction:
+                HandleTileInteraction(tile, cellPos);
+                break;
+            case GameMode.ActionType.BuildSpikes:
+            case GameMode.ActionType.BuildJumpPad:
+            case GameMode.ActionType.BuildMine:
+            case GameMode.ActionType.BuildCannon:
+                HandleBuilding(tile, cellPos, gameMode.currentAction);
+                break;
+            default:
+                Debug.Log("[ContraptionInteractionDispatcher::OnMouseDown()] Unknown ActionType");
+                break;
+        }
+    }
+
+    private void HandleBuilding(TileBase tile, Vector3Int cellPos, GameMode.ActionType currentAction)
+    {
+        switch (gameMode.currentAction)
+        {
+            case GameMode.ActionType.BuildSpikes:
+
+                break;
+            case GameMode.ActionType.BuildJumpPad:
+                break;
+            case GameMode.ActionType.BuildMine:
+                break;
+            case GameMode.ActionType.BuildCannon:
+                break;
+            default:
+                Debug.Log("[ContraptionInteractionDispatcher::OnMouseDown()] Unknown or not a building ActionType");
+                break;
+        }
+
+        var prefabToSpawn = tilePrefabsMap[TrimTileName(ToTileString(gameMode.currentAction))];
+
+        if (prefabToSpawn == null)
+        {
+            Debug.Log("[HandleBuilding] Wrong tileName");
+            return;
+        }
+
+        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos), Quaternion.identity);
+        playerTileObjectsMap.Add(cellPos, newObj);
+    }
+
+    private string ToTileString(GameMode.ActionType currentAction)
+    {
+        switch (currentAction)
+        {
+            case GameMode.ActionType.BuildSpikes:
+                return "Spikes";
+            case GameMode.ActionType.BuildJumpPad:
+                return "JampPad";
+            case GameMode.ActionType.BuildMine:
+                return "Mine";
+            case GameMode.ActionType.BuildCannon:
+                return "Cannon";
+            default:
+                return "Twoja Stara";
+        }
+    }
+
+    private void HandleTileInteraction(TileBase tile, Vector3Int cellPos)
+    {
         if (tile != null)
         {
             if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
@@ -103,10 +179,9 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                     return Mathf.Abs(a - b) < EPS;
                 }
 
-
                 int rotation = -1;
                 float rotZ = tilemap.GetTransformMatrix(cellPos).rotation.eulerAngles.z;
-                if ( isCloseEnough(rotZ, 0))
+                if (isCloseEnough(rotZ, 0))
                 {
                     rotation = 0;
                 }
