@@ -114,25 +114,54 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             HandleMouseDown();
         }
 
-        //Interaction hover
-        if(FindObjectOfType<GameMode>().currentAction == GameMode.ActionType.Interaction)
+        HandleHovering();
+    }
+
+    public void HandleHovering()
+    {
+        var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        var tile = tilemap.GetTile(cellPos);
+
+        _OverlayLayer.Clear();
+
+        if (gameMode.currentAction == GameMode.ActionType.Interaction)
         {
-            var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
-            var tile = tilemap.GetTile(cellPos);
-
-            _OverlayLayer.Clear();
             if (tile != null)
             {
-                if(tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
+                if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
                 {
-                    _OverlayLayer.Set(cellPos, HoverTilePrefab);
+                    _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
                 }
             }
-
-            lastPos = cellPos;
         }
 
+        if (gameMode.IsInBuildingMode())
+        {
+            _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
+        }
+
+        lastPos = cellPos;
+    }
+
+    public TileBase GetPreviewTileForAction(GameMode.ActionType action)
+    {
+        if (FindObjectOfType<GameMode>().currentAction == GameMode.ActionType.Interaction)
+        {
+            return HoverTilePrefab;
+        }
+
+        if (gameMode.IsInBuildingMode())
+        {
+            var prefabObj = tilePrefabsMap[TrimTileName(ToTileString(action))];
+            var component = prefabObj.GetComponent<ContraptionBase>();
+
+            if (component != null)
+            {
+                return component.tile;
+            }
+        }
+
+        return null;
     }
 
     private void HandleBuilding(TileBase tile, Vector3Int cellPos, GameMode.ActionType currentAction)
@@ -156,7 +185,6 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         {
             return;
         }
-
 
         var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos), Quaternion.identity);
         playerTileObjectsMap.Add(cellPos, newObj);

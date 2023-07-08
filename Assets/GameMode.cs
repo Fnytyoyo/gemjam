@@ -49,7 +49,6 @@ public class GameMode : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         actionInputMap.Add("1", ActionType.Interaction);
@@ -93,6 +92,12 @@ public class GameMode : MonoBehaviour
         }
 
         FindObjectOfType<Inventory>().SetupInventory(newLevel.Inventory);
+    }
+
+    public bool IsInBuildingMode()
+    {
+        return currentAction == ActionType.BuildCannon || currentAction == ActionType.BuildMine ||
+               currentAction == ActionType.BuildSpikes || currentAction == ActionType.BuildJumpPad;
     }
 
     void RespawnPlayer(Vector3 position)

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ContraptionName: 
+  tile: {fileID: 11400000, guid: 377ad6078833fd04eaf9a5dd5856aac0, type: 2}
   bullet: {fileID: 1878824446873905951, guid: 13c5e551e4ddf6841ba70c9b234a4515, type: 3}
   directionGO: {fileID: 8712809263188214013}
 --- !u!1 &8712809263188214013
