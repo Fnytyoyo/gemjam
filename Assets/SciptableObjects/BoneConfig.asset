@@ -16,4 +16,4 @@ MonoBehaviour:
   getUpTime: 2.5
   velocityThreshold: 2.5
   maxForce: 100
-  getUpSpeed: 2.5
+  getUpSpeed: 25
