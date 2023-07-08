@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Mine : MonoBehaviour
+public class Mine : ContraptionBase
 {
     public float explosionTime = 0.2f;
     public float basePower = 30.0f;
@@ -57,7 +57,7 @@ public class Mine : MonoBehaviour
         }
     }
     
-    void OnMouseDown()
+    public override void OnInteract(Vector3 pos, int rot)
     {
         if (readyToUse)
         {

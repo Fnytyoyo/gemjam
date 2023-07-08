@@ -13,7 +13,6 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     public Color InteractionPossiblePrevewColor;
 
-    private Dictionary<string, ContraptionBase> contraptionsMap = new Dictionary<string, ContraptionBase>();
     Tilemap tilemap;
     Vector3Int? lastPos = null;
 
@@ -42,11 +41,6 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         tilePrefabsMap.Add("JumpPad", jumpPadPrefab);
         tilePrefabsMap.Add("Spikes", spikesPrefab);
         tilePrefabsMap.Add("Cannon", cannonPrefab);
-
-        foreach ( var c in gameObject.GetComponents<ContraptionBase>())
-        {
-            contraptionsMap.Add(c.ContraptionName, c);
-        }
 
         tilemap = gameObject.GetComponent<Tilemap>();
         lastPos = null;
@@ -82,7 +76,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         _OverlayLayer.Clear();
         if (tile != null)
         {
-            if(contraptionsMap.ContainsKey(TrimTileName(tile.name)))
+            if(tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
             {
                 _OverlayLayer.Set(cellPos, HoverTilePrefab);
             }
@@ -98,7 +92,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
         if (tile != null)
         {
-            if (contraptionsMap.ContainsKey(TrimTileName(tile.name)))
+            if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
             {
                 const float EPS = 1f;
                 bool isCloseEnough(float a, float b)
@@ -127,7 +121,12 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                 }
 
                 var worldPos = tilemap.CellToWorld(cellPos);
-                contraptionsMap[TrimTileName(tile.name)].OnInteract(worldPos, rotation);
+                ContraptionBase component = null;
+                tileObjectsMap[cellPos].TryGetComponent<ContraptionBase>(out component);
+                if (component != null)
+                {
+                    component.OnInteract(worldPos, rotation);
+                }
             }
         }
     }

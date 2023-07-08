@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 3965035546019290701}
   - component: {fileID: 6354117567715723596}
   - component: {fileID: 2893680249807570996}
-  - component: {fileID: 7168825256241412825}
   m_Layer: 0
   m_Name: Contraptions
   m_TagString: Untagged
@@ -401,23 +400,10 @@ MonoBehaviour:
   _OverlayLayer: {fileID: 2890547207567390181}
   HoverTilePrefab: {fileID: 11400000, guid: 0a9734eb810909049b9d560e9e57dbe3, type: 2}
   InteractionPossiblePrevewColor: {r: 0.3578205, g: 1, b: 0, a: 1}
-  minePrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
+  minePrefab: {fileID: 5968572170846991106, guid: 9c1922540b7a8614a940f7c870e90654, type: 3}
   jumpPadPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
   spikesPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
   cannonPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
---- !u!114 &7168825256241412825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 281339849108573976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f9acdd276ce967438e686b3811dc05c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ContraptionName: Mine
 --- !u!1 &2742219534040821127
 GameObject:
   m_ObjectHideFlags: 0
