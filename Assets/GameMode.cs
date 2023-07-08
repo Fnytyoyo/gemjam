@@ -21,9 +21,33 @@ public class GameMode : MonoBehaviour
 
     public enum ActionType { Interaction, BuildMine, BuildSpikes, BuildCannon, BuildJumpPad };
 
-    public ActionType currentAction { get; private set;  } = ActionType.Interaction;
+    public ActionType currentAction { get; private set; } = ActionType.Interaction;
 
     private readonly Dictionary<string, ActionType> actionInputMap = new Dictionary<string, ActionType>();
+    public ActionType ShortcutStringToAction(string shortcutString) => actionInputMap[shortcutString];
+
+    private Dictionary<string, int> inventoryItemsLeft = new Dictionary<string, int>();
+
+    public int GetItemsLeft(string contraptionName)
+    {
+        return inventoryItemsLeft.ContainsKey(contraptionName) ? inventoryItemsLeft[contraptionName] : 0;
+    }
+
+    public void ChangeItemCount(string contraptionName, int delta)
+    {
+        if(inventoryItemsLeft.ContainsKey(contraptionName) == false)
+        {
+            Debug.LogError($"No contraption of this type: {contraptionName}");
+            return;
+        }
+
+        inventoryItemsLeft[contraptionName] += delta;
+
+        if (inventoryItemsLeft[contraptionName] < 0)
+        {
+            Debug.LogError($"We've built more contraptions: {contraptionName} than we had. WHY?");
+        }
+    }
 
     void Start()
     {
@@ -32,7 +56,7 @@ public class GameMode : MonoBehaviour
         actionInputMap.Add("3", ActionType.BuildSpikes);
         actionInputMap.Add("4", ActionType.BuildCannon);
         actionInputMap.Add("5", ActionType.BuildJumpPad);
-        
+
         currentLevelIdx = 0;
         LoadCurrentLevel();
         Unpause();
@@ -44,8 +68,8 @@ public class GameMode : MonoBehaviour
     {
         var currLevelGO = FindObjectOfType<Level>();
         Debug.Log(currLevelGO?.name);
-        
-        if(currLevelGO)
+
+        if (currLevelGO)
         {
             GameObject.Destroy(currLevelGO.gameObject);
         }
@@ -61,8 +85,19 @@ public class GameMode : MonoBehaviour
         newCameraPos.z = -1;
         Camera.main.transform.position = newCameraPos;
 
+        inventoryItemsLeft.Clear();
+        foreach (var item in newLevel.Inventory)
+        {
+            inventoryItemsLeft.Add(item.ContraptionName, item.Count);
+        }
 
         FindObjectOfType<Inventory>().SetupInventory(newLevel.Inventory);
+    }
+
+    public bool IsInBuildingMode()
+    {
+        return currentAction == ActionType.BuildCannon || currentAction == ActionType.BuildMine ||
+               currentAction == ActionType.BuildSpikes || currentAction == ActionType.BuildJumpPad;
     }
 
     void RespawnPlayer(Vector3 position)
@@ -121,6 +156,14 @@ public class GameMode : MonoBehaviour
             {
                 if (Input.GetKeyDown(item.Key))
                 {
+                    string contraptionName = ContraptionInteractionDispatcher.ToTileString(item.Value);
+                    if(contraptionName != "") // Do not check if interaction
+                    {
+                        if (Levels[currentLevelIdx].Inventory.Find(e => e.ContraptionName == contraptionName).Count == 0)
+                        {
+                            continue;
+                        }
+                    }
                     currentAction = item.Value;
                     UnityEngine.Debug.Log("Action changed to: " + currentAction);
                     break;
@@ -145,4 +188,48 @@ public class GameMode : MonoBehaviour
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(true);
     }
 
+    public bool CanBuildOn(Vector3Int gridCoords, int rotation)
+    {
+        var currLevel = Levels[currentLevelIdx];
+
+        if (currLevel.contraptionTilemap.GetTile(gridCoords) == true)
+        {
+            return false;
+        }
+
+        if (currLevel.wallsTilemap.GetTile(gridCoords) == true)
+        {
+            return false;
+        }
+
+        {
+            var neighbourCoords = gridCoords;
+
+            switch (rotation)
+            {
+                case 0:
+                    neighbourCoords.y -= 1;
+                    break;
+                case 1:
+                    neighbourCoords.x += 1;
+                    break;
+                case 2:
+                    neighbourCoords.y += 1;
+                    break;
+                case 3:
+                    neighbourCoords.x += -1;
+                    break;
+                default:
+                    Debug.Log("Unexpected rotation value.");
+                    return false;
+            }
+
+            if (currLevel.wallsTilemap.GetTile(neighbourCoords) == false)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

@@ -114,25 +114,60 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             HandleMouseDown();
         }
 
-        var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        HandleHovering();
+    }
 
+    public void HandleHovering()
+    {
+        var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         var tile = tilemap.GetTile(cellPos);
 
         _OverlayLayer.Clear();
-        if (tile != null)
+
+        if (gameMode.currentAction == GameMode.ActionType.Interaction)
         {
-            if(tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
+            if (tile != null)
             {
-                _OverlayLayer.Set(cellPos, HoverTilePrefab);
+                if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
+                {
+                    _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
+                }
             }
+        }
+
+        if (gameMode.IsInBuildingMode())
+        {
+            _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
         }
 
         lastPos = cellPos;
     }
 
+    public TileBase GetPreviewTileForAction(GameMode.ActionType action)
+    {
+        if (FindObjectOfType<GameMode>().currentAction == GameMode.ActionType.Interaction)
+        {
+            return HoverTilePrefab;
+        }
+
+        if (gameMode.IsInBuildingMode())
+        {
+            var prefabObj = tilePrefabsMap[TrimTileName(ToTileString(action))];
+            var component = prefabObj.GetComponent<ContraptionBase>();
+
+            if (component != null)
+            {
+                return component.tile;
+            }
+        }
+
+        return null;
+    }
+
     private void HandleBuilding(TileBase tile, Vector3Int cellPos, GameMode.ActionType currentAction)
     {
-        var prefabToSpawn = tilePrefabsMap[TrimTileName(ToTileString(gameMode.currentAction))];
+        string contraptionName = ToTileString(gameMode.currentAction);
+        var prefabToSpawn = tilePrefabsMap[TrimTileName(contraptionName)];
 
         if (prefabToSpawn == null)
         {
@@ -140,7 +175,16 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        // TODO(RCh): check if we can build here
+        if(FindObjectOfType<GameMode>().GetItemsLeft(contraptionName) == 0)
+        {
+            return;
+        }
+
+        var chosenRotation = 0; // TODO(RCh): user should provide this 
+        if (gameMode.CanBuildOn(cellPos, chosenRotation) == false)
+        {
+            return;
+        }
 
         var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos), Quaternion.identity);
         playerTileObjectsMap.Add(cellPos, newObj);
@@ -152,11 +196,13 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        // TODO(RCh): get rotation from GameMode
+        // TODO(RCh): apply rotation here
         tilemap.SetTile(cellPos, component.tile);
+
+        FindObjectOfType<GameMode>().ChangeItemCount(contraptionName, -1);
     }
 
-    private string ToTileString(GameMode.ActionType currentAction)
+    public static string ToTileString(GameMode.ActionType currentAction)
     {
         switch (currentAction)
         {
@@ -169,8 +215,18 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             case GameMode.ActionType.BuildCannon:
                 return "Cannon";
             default:
-                return "Twoja Stara";
+                return "";
         }
+    }
+
+    public GameObject GetTileObject(Vector3Int gridCoords)
+    {
+        if (playerTileObjectsMap.ContainsKey(gridCoords)) 
+        {
+            return playerTileObjectsMap[gridCoords];
+        }
+
+        return tileObjectsMap[gridCoords];
     }
 
     private void HandleTileInteraction(TileBase tile, Vector3Int cellPos)
@@ -204,11 +260,12 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                     rotation = 3;
                 }
 
-                var worldPos = tilemap.CellToWorld(cellPos);
+                var tileObject = GetTileObject(cellPos);
                 ContraptionBase component = null;
-                tileObjectsMap[cellPos].TryGetComponent<ContraptionBase>(out component);
+                tileObject.TryGetComponent<ContraptionBase>(out component);
                 if (component != null)
                 {
+                    var worldPos = tilemap.CellToWorld(cellPos);
                     component.OnInteract(worldPos, rotation);
                 }
             }

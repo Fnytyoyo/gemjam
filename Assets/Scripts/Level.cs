@@ -13,10 +13,13 @@ public class Level : MonoBehaviour
         public string ContraptionName;
         public Sprite ContraptionSprite;
         public int Count = 0;
+        public string Shortcut;
     }
 
-    public List<ContraptionInventoryCount> Inventory = new List<ContraptionInventoryCount>();
+    public Tilemap contraptionTilemap;
+    public Tilemap wallsTilemap;
 
+    public List<ContraptionInventoryCount> Inventory = new List<ContraptionInventoryCount>();
 
     // Start is called before the first frame update
     void Start()
