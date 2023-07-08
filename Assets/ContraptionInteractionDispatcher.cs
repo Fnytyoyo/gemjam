@@ -6,6 +6,9 @@ using UnityEngine.Tilemaps;
 
 public class ContraptionInteractionDispatcher : MonoBehaviour
 {
+    public OverlayLayer _OverlayLayer;
+    public TileBase HoverTilePrefab;
+
     const char TRIM_CHAR = '_';
 
     public Color InteractionPossiblePrevewColor;
@@ -40,23 +43,14 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     {
         var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-        if(lastPos != null && lastPos == cellPos)
-        {
-            return;
-        }
-
-        if(lastPos != null)
-        {
-            tilemap.SetColor(lastPos.Value, Color.white);
-        }
-
         var tile = tilemap.GetTile(cellPos);
 
+        _OverlayLayer.Clear();
         if (tile != null)
         {
             if(contraptionsMap.ContainsKey(TrimTileName(tile.name)))
             {
-                tilemap.SetColor(cellPos, InteractionPossiblePrevewColor);
+                _OverlayLayer.Set(cellPos, HoverTilePrefab);
             }
         }
 
