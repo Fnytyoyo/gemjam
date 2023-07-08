@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ae2d91a45e0fa4c9e87022e79cc835, type: 3}
+  m_Name: BoneConfig
+  m_EditorClassIdentifier: 
+  targetRotation: 0
+  getUpTime: 2.5
+  velocityThreshold: 2.5
+  maxForce: 75
+  getUpSpeed: 20
