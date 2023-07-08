@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +11,8 @@ using Debug = UnityEngine.Debug;
 
 public class GameMode : MonoBehaviour
 {
+    public bool IsPaused { get; private set; }
+
     int currentLevelIdx;
     public Level[] Levels;
     public GameObject PlayerPrefab;
@@ -29,7 +32,8 @@ public class GameMode : MonoBehaviour
         actionInputMap.Add("5", ActionType.BuildJumpPad);
         
         currentLevelIdx = 0;
-        LoadLevel(currentLevelIdx);
+        LoadCurrentLevel();
+        Unpause();
     }
 
     void LoadLevel(int idx)
@@ -65,18 +69,23 @@ public class GameMode : MonoBehaviour
         Instantiate(PlayerPrefab, position, Quaternion.identity);
     }
 
-    public void LoadNextLevel()
+    public void NextLevel()
     {
         currentLevelIdx++;
         if (currentLevelIdx < Levels.Length)
         {
-            LoadLevel(currentLevelIdx);
+            GameObject.FindObjectOfType<NextLevelPanel>(true).gameObject.SetActive(true);
         }
         else
         {
-            //TODO: Victory screen
-            UnityEngine.Debug.Log("Winner winner");
+            GameObject.FindObjectOfType<VictoryScreen>(true).gameObject.SetActive(true);
         }
+        //TODO: Disable interaction
+    }
+
+    public void LoadCurrentLevel()
+    {
+        LoadLevel(currentLevelIdx);
     }
 
     void Update()
@@ -93,5 +102,36 @@ public class GameMode : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(IsPaused)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
+
+    public void Unpause()
+    {
+        IsPaused = false;
+        Time.timeScale = 1;
+        GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(false);
+
+        Debug.LogError("IMPLEMENT ME!");
+    }
+
+    public void Pause()
+    {
+        IsPaused = true;
+        Time.timeScale = 0;
+        GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(true);
+
+        Debug.LogError("IMPLEMENT ME!");
+    }
+
 }

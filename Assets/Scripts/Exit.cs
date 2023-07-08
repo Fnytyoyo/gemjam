@@ -22,8 +22,7 @@ public class Exit : MonoBehaviour
         {
             hasTriggered = true;
 
-            //TODO: Display continue screen
-            FindObjectOfType<GameMode>().LoadNextLevel();
+            FindObjectOfType<GameMode>().NextLevel();
         }
     }
 }
