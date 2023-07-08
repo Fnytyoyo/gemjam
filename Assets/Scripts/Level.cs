@@ -13,6 +13,7 @@ public class Level : MonoBehaviour
         public string ContraptionName;
         public Sprite ContraptionSprite;
         public int Count = 0;
+        public string Shortcut;
     }
 
     public List<ContraptionInventoryCount> Inventory = new List<ContraptionInventoryCount>();

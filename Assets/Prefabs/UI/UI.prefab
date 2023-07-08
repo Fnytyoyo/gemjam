@@ -1713,7 +1713,7 @@ MonoBehaviour:
     m_Top: 15
     m_Bottom: 15
   m_ChildAlignment: 3
-  m_Spacing: 20
+  m_Spacing: 35
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -1748,6 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ElementPrefab: {fileID: 4023324531832208831, guid: 87ab6e78a5c04f84c9f9fd65741d1f89, type: 3}
+  InteractionSprite: {fileID: 21300000, guid: ef7b73a92a8fe144b9832b620c44451c, type: 3}
 --- !u!1 &8045302589210432913
 GameObject:
   m_ObjectHideFlags: 0

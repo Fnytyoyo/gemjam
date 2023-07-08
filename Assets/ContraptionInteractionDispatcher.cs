@@ -114,31 +114,43 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             HandleMouseDown();
         }
 
-        var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
-        var tile = tilemap.GetTile(cellPos);
-
-        _OverlayLayer.Clear();
-        if (tile != null)
+        //Interaction hover
+        if(FindObjectOfType<GameMode>().currentAction == GameMode.ActionType.Interaction)
         {
-            if(tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
+            var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+            var tile = tilemap.GetTile(cellPos);
+
+            _OverlayLayer.Clear();
+            if (tile != null)
             {
-                _OverlayLayer.Set(cellPos, HoverTilePrefab);
+                if(tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
+                {
+                    _OverlayLayer.Set(cellPos, HoverTilePrefab);
+                }
             }
+
+            lastPos = cellPos;
         }
 
-        lastPos = cellPos;
     }
 
     private void HandleBuilding(TileBase tile, Vector3Int cellPos, GameMode.ActionType currentAction)
     {
-        var prefabToSpawn = tilePrefabsMap[TrimTileName(ToTileString(gameMode.currentAction))];
+        string contraptionName = ToTileString(gameMode.currentAction);
+        var prefabToSpawn = tilePrefabsMap[TrimTileName(contraptionName)];
 
         if (prefabToSpawn == null)
         {
             Debug.Log("[HandleBuilding] Wrong tileName");
             return;
         }
+
+        if(FindObjectOfType<GameMode>().GetItemsLeft(contraptionName) == 0)
+        {
+            return;
+        }
+
 
         // TODO(RCh): check if we can build here
 
@@ -154,9 +166,11 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
         // TODO(RCh): get rotation from GameMode
         tilemap.SetTile(cellPos, component.tile);
+
+        FindObjectOfType<GameMode>().ChangeItemCount(contraptionName, -1);
     }
 
-    private string ToTileString(GameMode.ActionType currentAction)
+    public static string ToTileString(GameMode.ActionType currentAction)
     {
         switch (currentAction)
         {
@@ -169,7 +183,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             case GameMode.ActionType.BuildCannon:
                 return "Cannon";
             default:
-                return "Twoja Stara";
+                return "";
         }
     }
 

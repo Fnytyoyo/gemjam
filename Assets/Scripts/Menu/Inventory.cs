@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
     public GameObject ElementPrefab;
+    public Sprite InteractionSprite;
 
     public void SetupInventory(List<Level.ContraptionInventoryCount> inventory)
     {
@@ -12,6 +14,12 @@ public class Inventory : MonoBehaviour
         {
             transform.GetChild(i).gameObject.transform.parent = null; // Become Batman!
             Destroy(transform.GetChild(i).gameObject);
+        }
+
+        {
+            var elementGO = Instantiate(ElementPrefab, gameObject.transform);
+            InventoryElement ie = elementGO.GetComponent<InventoryElement>();
+            ie.Setup("Interact", InteractionSprite, -1, "1");
         }
 
         foreach (var item in inventory)
@@ -23,7 +31,7 @@ public class Inventory : MonoBehaviour
             var elementGO = Instantiate(ElementPrefab, gameObject.transform);
             InventoryElement ie = elementGO.GetComponent<InventoryElement>();
 
-            ie.Setup(item.ContraptionName, item.ContraptionSprite, item.Count);
+            ie.Setup(item.ContraptionName, item.ContraptionSprite, item.Count, item.Shortcut.ToString());
         }
     }
 }

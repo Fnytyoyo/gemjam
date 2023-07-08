@@ -24,6 +24,31 @@ public class GameMode : MonoBehaviour
     public ActionType currentAction { get; private set;  } = ActionType.Interaction;
 
     private readonly Dictionary<string, ActionType> actionInputMap = new Dictionary<string, ActionType>();
+    public ActionType ShortcutStringToAction(string shortcutString) => actionInputMap[shortcutString];
+
+    private Dictionary<string, int> inventoryItemsLeft = new Dictionary<string, int>();
+
+    public int GetItemsLeft(string contraptionName)
+    {
+        return inventoryItemsLeft.ContainsKey(contraptionName) ? inventoryItemsLeft[contraptionName] : 0;
+    }
+
+    public void ChangeItemCount(string contraptionName, int delta)
+    {
+        if(inventoryItemsLeft.ContainsKey(contraptionName) == false)
+        {
+            Debug.LogError($"No contraption of this type: {contraptionName}");
+            return;
+        }
+
+        inventoryItemsLeft[contraptionName] += delta;
+
+        if (inventoryItemsLeft[contraptionName] < 0)
+        {
+            Debug.LogError($"We've built more contraptions: {contraptionName} than we had. WHY?");
+        }
+    }
+
 
     void Start()
     {
@@ -61,6 +86,11 @@ public class GameMode : MonoBehaviour
         newCameraPos.z = -1;
         Camera.main.transform.position = newCameraPos;
 
+        inventoryItemsLeft.Clear();
+        foreach (var item in newLevel.Inventory)
+        {
+            inventoryItemsLeft.Add(item.ContraptionName, item.Count);
+        }
 
         FindObjectOfType<Inventory>().SetupInventory(newLevel.Inventory);
     }
@@ -121,6 +151,14 @@ public class GameMode : MonoBehaviour
             {
                 if (Input.GetKeyDown(item.Key))
                 {
+                    string contraptionName = ContraptionInteractionDispatcher.ToTileString(item.Value);
+                    if(contraptionName != "") // Do not check if interaction
+                    {
+                        if (Levels[currentLevelIdx].Inventory.Find(e => e.ContraptionName == contraptionName).Count == 0)
+                        {
+                            continue;
+                        }
+                    }
                     currentAction = item.Value;
                     UnityEngine.Debug.Log("Action changed to: " + currentAction);
                     break;
