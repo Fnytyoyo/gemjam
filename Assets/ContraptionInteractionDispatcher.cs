@@ -76,6 +76,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         tilemap = gameObject.GetComponent<Tilemap>();
         lastPos = null;
 
+        var cellHalfSize = tilemap.cellSize/2;
+
         for (int i = tilemap.cellBounds.xMin; i < tilemap.cellBounds.xMax; ++i)
         {
             for (int j = tilemap.cellBounds.yMin; j < tilemap.cellBounds.yMax; ++j)
@@ -88,7 +90,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                     if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
                     {
                         var prefabToSpawn = tilePrefabsMap[TrimTileName(tile.name)];
-                        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords), Quaternion.identity);
+                        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords) + cellHalfSize, Quaternion.identity);
 
                         tileObjectsMap.Add(tileGridCoords, newObj);
                     }
