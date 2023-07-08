@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Cannon : MonoBehaviour
+public class Cannon : ContraptionBase
 {
     public GameObject bullet;
 
@@ -16,19 +16,30 @@ public class Cannon : MonoBehaviour
         position = new Vector2(transform.position.x, transform.position.y);
     }
     
-    void OnMouseDown()
+    public override void OnInteract(Vector3 pos, int rotation)
     {
         GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);
 
-        Vector2 directionPosition = new Vector2(directionGO.transform.position.x, directionGO.transform.position.y);
-        Vector2 direction = directionPosition - position;
+        Vector2 direction = new Vector2();
+
+        switch(rotation)
+        {
+            case 0:
+                direction = new Vector2(0, 1);
+                break;
+            case 1:
+                direction = new Vector2(-1, 0);
+                break;
+            case 2:
+                direction = new Vector2(0, -1);
+                break;
+            case 3:
+                direction = new Vector2(1, 0);
+                break;
+        }
+        Debug.Log(direction);
 
         var rb = newBullet.GetComponent<Rigidbody2D>();
-        Debug.Log(direction);
         rb.velocity = direction * 10;
-    }
-    
-    void Update()
-    {
     }
 }
