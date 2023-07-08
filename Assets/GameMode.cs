@@ -132,8 +132,6 @@ public class GameMode : MonoBehaviour
         interactableCounter--;
         Time.timeScale = 1;
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(false);
-
-        Debug.LogError("IMPLEMENT ME!");
     }
 
     public void Pause()
@@ -142,8 +140,6 @@ public class GameMode : MonoBehaviour
         interactableCounter++;
         Time.timeScale = 0;
         GameObject.FindObjectOfType<PauseMenu>(true).gameObject.SetActive(true);
-
-        Debug.LogError("IMPLEMENT ME!");
     }
 
 }
