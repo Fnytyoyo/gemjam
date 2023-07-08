@@ -7,6 +7,17 @@ using UnityEngine.Tilemaps;
 
 public class Level : MonoBehaviour
 {
+    [Serializable]
+    public class ContraptionInventoryCount
+    {
+        public string ContraptionName;
+        public Sprite ContraptionSprite;
+        public int Count = 0;
+    }
+
+    public List<ContraptionInventoryCount> Inventory = new List<ContraptionInventoryCount>();
+
+
     // Start is called before the first frame update
     void Start()
     {

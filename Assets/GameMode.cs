@@ -60,6 +60,9 @@ public class GameMode : MonoBehaviour
         Vector3 newCameraPos = levelBounds.center;
         newCameraPos.z = -1;
         Camera.main.transform.position = newCameraPos;
+
+
+        FindObjectOfType<Inventory>().SetupInventory(newLevel.Inventory);
     }
 
     void RespawnPlayer(Vector3 position)
