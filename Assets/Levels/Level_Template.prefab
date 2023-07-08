@@ -2183,7 +2183,7 @@ MonoBehaviour:
   wallsTilemap: {fileID: 750953541755804515}
   Inventory:
   - ContraptionName: Mine
-    ContraptionSprite: {fileID: 21300000, guid: 01aa3ce277af5484db854da428f08d82, type: 3}
+    ContraptionSprite: {fileID: 1236149254, guid: 01aa3ce277af5484db854da428f08d82, type: 3}
     Count: 0
     Shortcut: 2
   - ContraptionName: Spikes
@@ -2194,6 +2194,7 @@ MonoBehaviour:
     ContraptionSprite: {fileID: 21300000, guid: edfba445767a46f40adbea2b25f8cc14, type: 3}
     Count: 0
     Shortcut: 4
+  Story: []
 --- !u!1 &4610975784033356599
 GameObject:
   m_ObjectHideFlags: 0
