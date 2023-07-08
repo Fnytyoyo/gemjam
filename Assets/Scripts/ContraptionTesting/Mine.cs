@@ -59,11 +59,14 @@ public class Mine : MonoBehaviour
     
     void OnMouseDown()
     {
-        Debug.Log("Mine explosion");
-        readyToUse = false;
-        background.color = usedColor;
-        particles.Play();
-        StartCoroutine(Explode());
+        if (readyToUse)
+        {
+            Debug.Log("Mine explosion");
+            readyToUse = false;
+            background.color = usedColor;
+            particles.Play();
+            StartCoroutine(Explode());
+        }
     }
     
     void Update()
