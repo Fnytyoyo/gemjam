@@ -27649,15 +27649,15 @@ MonoBehaviour:
   - ContraptionName: Mine
     ContraptionSprite: {fileID: 21300000, guid: f92edd95eec8d1f409d3f076bb3702c3, type: 3}
     Count: 0
-    Shortcut: 2
+    Shortcut: W
   - ContraptionName: Spikes
-    ContraptionSprite: {fileID: 21300000, guid: 9cb1a5efcc5c0ea8ab8e62cbdc7d21d2, type: 3}
+    ContraptionSprite: {fileID: 21300000, guid: 199c0ec93ef571d429f27b4e94988513, type: 3}
     Count: 0
-    Shortcut: 3
+    Shortcut: E
   - ContraptionName: Cannon
-    ContraptionSprite: {fileID: 21300000, guid: edfba445767a46f40adbea2b25f8cc14, type: 3}
+    ContraptionSprite: {fileID: 21300000, guid: 4fca490db0f53d444921531504cfcaaa, type: 3}
     Count: 0
-    Shortcut: 4
+    Shortcut: R
   Story: []
 --- !u!1 &4610975784033356599
 GameObject:
