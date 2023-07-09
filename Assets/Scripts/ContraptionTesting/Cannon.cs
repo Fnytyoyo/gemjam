@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Cannon : ContraptionBase
 {
+    public AudioSource audioSource;
     public GameObject bullet;
 
     public GameObject directionGO;
@@ -18,6 +19,7 @@ public class Cannon : ContraptionBase
     void Start()
     {
         position = new Vector2(transform.position.x, transform.position.y);
+        audioSource = GetComponent<AudioSource>();
         timeSinceLastShot = Cooldown;
     }
 
@@ -42,6 +44,7 @@ public class Cannon : ContraptionBase
         GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);
 
         Vector2 direction = new Vector2();
+        audioSource.PlayOneShot(audioSource.clip);
 
         switch(rotation)
         {
@@ -58,7 +61,6 @@ public class Cannon : ContraptionBase
                 direction = new Vector2(1, 0);
                 break;
         }
-        Debug.Log(direction);
 
         var rb = newBullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * 10;

@@ -21,6 +21,7 @@ public class Spikes : ContraptionBase
     public override void OnRecharge()
     {
         active = false;
+        particles.Stop();
     }
 
     private void ApplyForce(Rigidbody2D limb, Vector2 forceDirection)
