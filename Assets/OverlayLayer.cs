@@ -40,8 +40,5 @@ public class OverlayLayer : MonoBehaviour
         var oldMatrix = tilemap.GetTransformMatrix(cell);
         Matrix4x4 newMatrix = Matrix4x4.TRS(oldMatrix.GetPosition(), rotation, new Vector3(1, 1, 1));
         tilemap.SetTransformMatrix(cell, newMatrix);
-        //var tile = tilemap.GetTile(cell);
-        //tile.transform.Rotate(new Vector3(0, 0, 90));
-
     }
 }

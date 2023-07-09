@@ -54,6 +54,14 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         }
     }
 
+    // Helper
+    public static void RotateTile(Tilemap tilemap, Vector3Int coord, Quaternion rotation)
+    {
+        var oldMatrix = tilemap.GetTransformMatrix(coord);
+        Matrix4x4 newMatrix = Matrix4x4.TRS(oldMatrix.GetPosition(), rotation, new Vector3(1, 1, 1));
+        tilemap.SetTransformMatrix(coord, newMatrix);
+    }
+    
     private string TrimTileName(string tileName)
     {
         int floorPos = tileName.IndexOf(TRIM_CHAR);
@@ -190,7 +198,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos) + cellHalfSize, Quaternion.identity);
+        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(cellPos) + cellHalfSize, Quaternion.Euler(0, 0, gameMode.buildingRotation * 90));
         playerTileObjectsMap.Add(cellPos, newObj);
 
         var component = newObj.GetComponent<ContraptionBase>();
@@ -200,8 +208,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        // TODO(RCh): apply rotation here
         tilemap.SetTile(cellPos, component.tile);
+        RotateTile(tilemap, cellPos, Quaternion.Euler(0, 0, gameMode.buildingRotation * 90));
 
         FindObjectOfType<GameMode>().ChangeItemCount(contraptionName, -1);
     }
