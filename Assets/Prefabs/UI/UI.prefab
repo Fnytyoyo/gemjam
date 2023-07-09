@@ -584,7 +584,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -1660, y: -878}
+  m_SizeDelta: {x: -428.39996, y: -210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &832962348203304113
 CanvasRenderer:
@@ -1281,9 +1281,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '*clap* *clap*
+  m_text: 'Congratulations!
 
-    You won'
+    You won!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 837c5395fb823004487d5d6deae50c40, type: 2}
   m_sharedMaterial: {fileID: 8395039893964869343, guid: 837c5395fb823004487d5d6deae50c40, type: 2}
