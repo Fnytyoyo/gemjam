@@ -15,7 +15,12 @@ public class Cannon : ContraptionBase
     {
         position = new Vector2(transform.position.x, transform.position.y);
     }
-    
+
+    public override void OnRecharge()
+    {
+        /* NOTE: Cannons dont need to be recharged */
+    }
+
     public override void OnInteract(Vector3 pos, int rotation)
     {
         GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);

@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
-  - {fileID: 6550935399034172921, guid: 54a5226ee6ff0ca449be586d15087e24, type: 3}
-  - {fileID: 4560864344378317779, guid: 3a5a7325240454a478a42469e83cb39e, type: 3}
+  - {fileID: 8155822794024084696, guid: 0ae664e705bc20f49a1a370664f669e3, type: 3}
   PlayerPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float force = 40.0f;
+    
     void Update()
     {
         transform.rotation = Quaternion.FromToRotation(Vector2.right, GetComponent<Rigidbody2D>().velocity);
@@ -12,9 +14,11 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        Vector2 direction = GetComponent<Rigidbody2D>().velocity.normalized;
+        Vector2 position = col.transform.position;
         if (col.gameObject.layer == LayerMask.NameToLayer("Ragdoll"))
         {
-            col.gameObject.GetComponent<Rigidbody2D>().AddForce((col.gameObject.transform.position - transform.position) * 5000);
+            col.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition(direction * force, position, ForceMode2D.Impulse);
         }
         
         Destroy(this.gameObject);

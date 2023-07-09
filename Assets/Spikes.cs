@@ -17,6 +17,11 @@ public class Spikes : ContraptionBase
     {
     }
 
+    public override void OnRecharge()
+    {
+        active = false;
+    }
+
     private void ApplyForce(Rigidbody2D limb, Vector2 forceDirection)
     {
         float distance = forceDirection.magnitude;

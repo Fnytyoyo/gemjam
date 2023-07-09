@@ -66,7 +66,8 @@ public class GameMode : MonoBehaviour
 
         currentLevelIdx = 0;
 
-        interactableBlockCounter = 0;
+        interactableBlockCounter = 1; //Don't ask...
+        Unpause();
         LoadLevel(currentLevelIdx);
 
         buildingRotation = 0;
@@ -169,6 +170,11 @@ public class GameMode : MonoBehaviour
 
     void Update()
     {
+        if (currentLevelIdx >= Levels.Length)
+        { 
+            return;
+        }
+
         if (currentStoryIdx < Levels[currentLevelIdx].Story.Count)
         {
             if (isStoryPanelDisplayed)
@@ -227,6 +233,11 @@ public class GameMode : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             AddToBuildingRotation(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            ResetLevel();
         }
 
         if (!IsInteractable)
@@ -322,5 +333,25 @@ public class GameMode : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void ResetLevel()
+    {
+        var currLevel = FindObjectOfType<Level>();
+
+        var dispatcher = currLevel.contraptionTilemap.GetComponent<ContraptionInteractionDispatcher>();
+        if (dispatcher == null)
+        {
+            return;
+        }
+
+        dispatcher.RechargeAllContraptions();
+
+        RespawnPlayer(currLevel.GetStartPosition());
+
+        foreach(var blt in FindObjectsOfType<Bullet>())
+        {
+            Destroy(blt.gameObject);
+        }
     }
 }
