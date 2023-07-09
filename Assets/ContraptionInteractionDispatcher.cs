@@ -49,7 +49,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         playerTileObjectsMap.Clear();
     }
 
-        public void RechargePlayerContraptions()
+    public void RechargePlayerContraptions()
     {
         CallOnRecharge(playerTileObjectsMap);
     }
@@ -82,26 +82,32 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         RechargeOnLevelContraptions();
     }
 
-    // TODO WIP
-    //public void OnLevelReset()
-    //{
-    //    RechargeOnLevelContraptions();
-    //
-    //    foreach (var c in playerTileObjectsMap.Values)
-    //    {
-    //        HandleRemoveBuilding();
-    //    }
-    //}
+    public void OnLevelReset()
+    {
+        RechargeOnLevelContraptions();
 
-    void HandleRemoveBuilding(TileBase tile, Vector3Int cellPos)
+        foreach (var c in playerTileObjectsMap)
+        {
+            HandleRemoveBuilding(c.Key);
+        }
+
+        playerTileObjectsMap.Clear();
+    }
+
+    // NOTE: does not call playerTileObjectsMap.Remove(..)
+    void HandleRemoveBuilding(Vector3Int cellPos)
     {
         if (playerTileObjectsMap.ContainsKey(cellPos))
         {
             var obj = playerTileObjectsMap[cellPos];
             GameObject.Destroy(obj);
-            playerTileObjectsMap.Remove(cellPos);
             tilemap.SetTile(cellPos, null);
-            gameMode.ChangeItemCount(TrimTileName(tile.name), +1);
+
+            var component = obj.GetComponent<ContraptionBase>();
+            if (component != null)
+            {
+                gameMode.ChangeItemCount(TrimTileName(component.tile.name), +1);
+            }
         }
     }
 
@@ -132,10 +138,10 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         /*
          * Goodnight sweet prince ;-;
          */
-         //if (Input.GetMouseButtonDown(1))
-         //{
-         //    HandleRemoveBuilding(tile, cellPos);
-         //}
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    HandleRemoveBuilding(tile, cellPos);
+        //}
     }
 
     // Helper
