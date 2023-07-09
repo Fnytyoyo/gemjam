@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class Spikes : ContraptionBase
 {
-    public AudioSource audioSource;
+    private AudioSource audioSource;
 
     public ParticleSystem particles;
     
@@ -57,7 +57,7 @@ public class Spikes : ContraptionBase
         if (active)
         {
             particles.Play();
-            audioSource.PlayOneShot(audioSource.clip);
+            audioSource.Play();
         }
         else
         {
