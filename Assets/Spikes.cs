@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class Spikes : ContraptionBase
 {
+    public ParticleSystem particles;
+    
     public float maxDistance;
     public float forcePower;
 
@@ -41,6 +43,15 @@ public class Spikes : ContraptionBase
     public override void OnInteract(Vector3 pos, int rotation)
     {
         active = !active;
+
+        if (active)
+        {
+            particles.Play();
+        }
+        else
+        {
+            particles.Stop();
+        }
     }
 
     private void FixedUpdate()
