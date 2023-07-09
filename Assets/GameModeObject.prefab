@@ -45,5 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
+  - {fileID: 6258023922968109003, guid: 335d02d446b9385489842a9b83b71ff4, type: 3}
+  - {fileID: 539252879995974678, guid: 6ad4cde6c53ff0c4e8eb5ec883ec7763, type: 3}
+  - {fileID: 8155822794024084696, guid: 7dd50f35152bc9e42bfb0c261540b2e7, type: 3}
+  - {fileID: 4028523969756608204, guid: 2730748635e61be41a3e5890eed9b8df, type: 3}
+  - {fileID: 5441033048077877351, guid: ef240c5dd79a26a4d98971dea3eb404c, type: 3}
+  - {fileID: 4505363164923806170, guid: f524d80704583934fa47f7af3d5539d1, type: 3}
+  - {fileID: 7591641700297739199, guid: ef5dc838a334cdb49a350a2d0ddc865a, type: 3}
+  - {fileID: 6037142882039392172, guid: 049d43d50fb9bfc4d8d9c4e337d164a9, type: 3}
   - {fileID: 8155822794024084696, guid: 0ae664e705bc20f49a1a370664f669e3, type: 3}
+  - {fileID: 2691514148221713804, guid: 801491e656dd81044aaf28916931a0e9, type: 3}
+  - {fileID: 2142631165285458351, guid: dd7e2d92f85008f448ea7266a14f0ad8, type: 3}
   PlayerPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}

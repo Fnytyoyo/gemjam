@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class Inventory : MonoBehaviour
 
     public void SetupInventory(List<Level.ContraptionInventoryCount> inventory)
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount;)
         {
             GameObject childGo = transform.GetChild(i).gameObject;
             childGo.transform.parent = null; // Become Batman!
