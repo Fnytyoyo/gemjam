@@ -3795,7 +3795,7 @@ MonoBehaviour:
   gameMode: {fileID: 0}
   minePrefab: {fileID: 5968572170846991106, guid: 9c1922540b7a8614a940f7c870e90654, type: 3}
   jumpPadPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
-  spikesPrefab: {fileID: 7860279579350429582, guid: d418f048e45c14e41a189993c6351916, type: 3}
+  spikesPrefab: {fileID: 3120903830997332709, guid: 0d7db469ab4d9f32f9799ea20c14d94e, type: 3}
   cannonPrefab: {fileID: 2061109763186274170, guid: a81272496f3916d4abf7e19cffb2675d, type: 3}
 --- !u!1 &2742219534040821127
 GameObject:
