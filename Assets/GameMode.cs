@@ -292,9 +292,9 @@ public class GameMode : MonoBehaviour
 
     public bool CanBuildOn(Vector3Int gridCoords, int rotation)
     {
-        var currLevel = Levels[currentLevelIdx];
+        var currLevel = FindObjectOfType<Level>();
 
-        if (currLevel.contraptionTilemap.GetTile(gridCoords) == true)
+        if (currLevel.contraptionTilemap.GetTile(gridCoords) != null)
         {
             return false;
         }
