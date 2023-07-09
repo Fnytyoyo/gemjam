@@ -66,25 +66,45 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         RechargeOnLevelContraptions();
     }
 
+    void HandleRemoveBuilding(TileBase tile, Vector3Int cellPos)
+    {
+        if (playerTileObjectsMap.ContainsKey(cellPos))
+        {
+            var obj = playerTileObjectsMap[cellPos];
+            GameObject.Destroy(obj);
+            playerTileObjectsMap.Remove(cellPos);
+            tilemap.SetTile(cellPos, null);
+            gameMode.ChangeItemCount(TrimTileName(tile.name), +1);
+        }
+    }
+
     void HandleMouseDown()
     {
         var cellPos = tilemap.layoutGrid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         var tile = tilemap.GetTile(cellPos);
 
-        switch (gameMode.currentAction)
+        if (Input.GetMouseButtonDown(0))
         {
-            case GameMode.ActionType.Interaction:
-                HandleTileInteraction(tile, cellPos);
-                break;
-            case GameMode.ActionType.BuildSpikes:
-            case GameMode.ActionType.BuildJumpPad:
-            case GameMode.ActionType.BuildMine:
-            case GameMode.ActionType.BuildCannon:
-                HandleBuilding(tile, cellPos, gameMode.currentAction);
-                break;
-            default:
-                UnityEngine.Debug.Log("[ContraptionInteractionDispatcher::OnMouseDown()] Unknown ActionType");
-                break;
+            switch (gameMode.currentAction)
+            {
+                case GameMode.ActionType.Interaction:
+                    HandleTileInteraction(tile, cellPos);
+                    break;
+                case GameMode.ActionType.BuildSpikes:
+                case GameMode.ActionType.BuildJumpPad:
+                case GameMode.ActionType.BuildMine:
+                case GameMode.ActionType.BuildCannon:
+                    HandleBuilding(tile, cellPos, gameMode.currentAction);
+                    break;
+                default:
+                    UnityEngine.Debug.Log("[ContraptionInteractionDispatcher::OnMouseDown()] Unknown ActionType");
+                    break;
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            HandleRemoveBuilding(tile, cellPos);
         }
     }
 
@@ -155,7 +175,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             HandleMouseDown();
         }
@@ -187,6 +207,15 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
             _OverlayLayer.SetTileColor(cellPos, Color.black);
             _OverlayLayer.SetRotation(cellPos, Quaternion.Euler(0, 0, gameMode.buildingRotation * 90));
+
+            if (gameMode.CanBuildOn(cellPos, gameMode.buildingRotation))
+            {
+                _OverlayLayer.SetTileColor(cellPos, Color.green);
+            }
+            else
+            {
+                _OverlayLayer.SetTileColor(cellPos, Color.red);
+            }
         }
 
         lastPos = cellPos;

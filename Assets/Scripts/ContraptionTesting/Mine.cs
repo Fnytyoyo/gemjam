@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -22,16 +23,21 @@ public class Mine : ContraptionBase
 
     private Vector2 actualExplosionPositionWithOffsetFromRotation;
 
+    private bool tileHidden;
     private bool readyToUse;
+
+    private Matrix4x4 savedTileMatrix;
 
     void Start()
     {
         position = new Vector2(this.transform.position.x, this.transform.position.y);
         readyToUse = true;
+        tileHidden = false;
     }
 
     public override void OnRecharge()
     {
+        ShowThisTile();
         readyToUse = true;
     }
 
@@ -100,10 +106,47 @@ public class Mine : ContraptionBase
             readyToUse = false;
             particles.Play();
             StartCoroutine(Explode());
+
+            HideThisTile();
         }
     }
     
     void Update()
     {
+    }
+
+    Tilemap GetParentTilemap()
+    {
+        var currLevelObj = FindObjectOfType<Level>();
+        return currLevelObj.contraptionTilemap;
+    }
+
+    void HideThisTile()
+    {
+        if (tileHidden == false)
+        {
+            var tm = GetParentTilemap();
+            var coords = tm.WorldToCell(transform.position);
+
+            savedTileMatrix = tm.GetTransformMatrix(coords);
+
+            tm.SetTile(coords, null);
+
+            tileHidden = true;
+        }
+    }
+
+    void ShowThisTile()
+    {
+        if (tileHidden == true)
+        {
+            var tm = GetParentTilemap();
+            var coords = tm.WorldToCell(transform.position);
+
+            tm.SetTile(coords, tile);
+            tm.SetTransformMatrix(coords, savedTileMatrix);
+
+            tileHidden = false;
+        }
     }
 }

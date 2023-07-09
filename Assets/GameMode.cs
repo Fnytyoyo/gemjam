@@ -58,10 +58,10 @@ public class GameMode : MonoBehaviour
 
     void Start()
     {
-        actionInputMap.Add("1", ActionType.Interaction);
-        actionInputMap.Add("2", ActionType.BuildMine);
-        actionInputMap.Add("3", ActionType.BuildSpikes);
-        actionInputMap.Add("4", ActionType.BuildCannon);
+        actionInputMap.Add("Q", ActionType.Interaction);
+        actionInputMap.Add("W", ActionType.BuildMine);
+        actionInputMap.Add("E", ActionType.BuildSpikes);
+        actionInputMap.Add("R", ActionType.BuildCannon);
         actionInputMap.Add("5", ActionType.BuildJumpPad);
 
         currentLevelIdx = 0;
@@ -225,12 +225,17 @@ public class GameMode : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (!IsInteractable)
+        {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             AddToBuildingRotation(-1);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             AddToBuildingRotation(1);
         }
@@ -240,16 +245,11 @@ public class GameMode : MonoBehaviour
             ResetLevel();
         }
 
-        if (!IsInteractable)
-        {
-            return;
-        }
-
         if (Input.anyKeyDown)
         {
             foreach (var item in actionInputMap)
             {
-                if (Input.GetKeyDown(item.Key))
+                if (Input.GetKeyDown(item.Key.ToLower()))
                 {
                     string contraptionName = ContraptionInteractionDispatcher.ToTileString(item.Value);
                     if (contraptionName != "") // Do not check if interaction
