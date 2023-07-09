@@ -121,11 +121,11 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             GameObject.Destroy(obj);
             tilemap.SetTile(cellPos, null);
 
-            var component = obj.GetComponent<ContraptionBase>();
-            if (component != null)
-            {
-                gameMode.ChangeItemCount(TrimTileName(component.tile.name), +1);
-            }
+            //var component = obj.GetComponent<ContraptionBase>();
+            //if (component != null)
+            //{
+            //    gameMode.ChangeItemCount(TrimTileName(component.tile.name), +1);
+            //}
 
             playerTileObjectsMap.Remove(cellPos);
         }
@@ -316,6 +316,11 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
         var chosenRotation = gameMode.buildingRotation;
         if (gameMode.CanBuildOn(cellPos, chosenRotation) == false)
+        {
+            return;
+        }
+
+        if (gameMode.GetItemsLeft(contraptionName) <= 0)
         {
             return;
         }
