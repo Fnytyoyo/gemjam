@@ -169,6 +169,11 @@ public class GameMode : MonoBehaviour
 
     void Update()
     {
+        if(currentLevelIdx >= Levels.Length)
+        {
+            return;
+        }
+
         if (currentStoryIdx < Levels[currentLevelIdx].Story.Count)
         {
             if (isStoryPanelDisplayed)
