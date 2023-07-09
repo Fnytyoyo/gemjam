@@ -17,7 +17,7 @@ public class Spikes : ContraptionBase
 
     public override void OnRecharge()
     {
-        throw new NotImplementedException();
+        /* NOTE: no need to recharge Spikes */
     }
 
     private void ApplyForce(Rigidbody2D limb, Vector2 forceDirection)

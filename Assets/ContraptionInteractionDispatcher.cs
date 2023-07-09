@@ -135,24 +135,20 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                     if (tilePrefabsMap.ContainsKey(TrimTileName(tile.name)))
                     {
                         var prefabToSpawn = tilePrefabsMap[TrimTileName(tile.name)];
-                        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords) + cellHalfSize, Quaternion.identity);
 
-                        tileObjectsMap.Add(tileGridCoords, newObj);
-                        UnityEngine.Debug.Log("SEEEEEEEEEEEEEEEKS B)");
+                        var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords) + cellHalfSize, tilemap.GetTransformMatrix(tileGridCoords).rotation);
+
+                        tileObjectsMap.Add(tileGridCoords, newObj)
                     }
                 }
 
             }
         }
-
-        UnityEngine.Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAasdasd");
     }
 
     // Update is called once per frame
     void Update()
     {
-        UnityEngine.Debug.Log("--------------" + tileObjectsMap.Count);
-
         if (FindObjectOfType<GameMode>().IsInteractable == false)
         {
             _OverlayLayer.Clear();
