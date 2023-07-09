@@ -12,10 +12,15 @@ public class StoryArea : MonoBehaviour
 
     public void SetText(string text, bool isPlayer)
     {
-        StoryTextTMP.text = text;
+        if (isPlayer == true)
+        {
+            StoryTextTMP.text = "PLAYER: ";
+        }
+
+        StoryTextTMP.text += text;
 
         if (isPlayer)
-        {
+        { 
             StoryTextTMP.color = playerColor;
         }
         else
