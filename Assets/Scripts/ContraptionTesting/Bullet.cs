@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float force = 40.0f;
+    public GameObject particlesPrefab;
     
     void Update()
     {
@@ -19,6 +20,7 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.layer == LayerMask.NameToLayer("Ragdoll"))
         {
             col.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition(direction * force, position, ForceMode2D.Impulse);
+            Instantiate(particlesPrefab, new Vector3(col.contacts[0].point.x, col.contacts[0].point.y, 0), Quaternion.identity);
         }
         
         Destroy(this.gameObject);
