@@ -67,6 +67,10 @@ public class Level : MonoBehaviour
 
         foreach (var tm in GetComponentsInChildren<Tilemap>())
         {
+            if(tm.gameObject.name != "Background")
+            {
+                continue;
+            }
             tm.CompressBounds();
             cellSize = tm.cellSize;
             min = Vector3Int.Min(min, tm.cellBounds.min);
