@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
         {
             var elementGO = Instantiate(ElementPrefab, gameObject.transform);
             InventoryElement ie = elementGO.GetComponent<InventoryElement>();
-            ie.Setup("Interact", InteractionSprite, -1, "1");
+            ie.Setup("Interact", InteractionSprite, -1, "Q");
         }
 
         foreach (var item in inventory)
