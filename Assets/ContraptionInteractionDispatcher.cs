@@ -110,6 +110,26 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             }
         }
     }
+    
+    public void RemoveBuilding(Vector3 worldPos)
+    {
+        var cellPos = tilemap.WorldToCell(worldPos);
+        
+        if (playerTileObjectsMap.ContainsKey(cellPos))
+        {
+            var obj = playerTileObjectsMap[cellPos];
+            GameObject.Destroy(obj);
+            tilemap.SetTile(cellPos, null);
+
+            var component = obj.GetComponent<ContraptionBase>();
+            if (component != null)
+            {
+                gameMode.ChangeItemCount(TrimTileName(component.tile.name), +1);
+            }
+
+            playerTileObjectsMap.Remove(cellPos);
+        }
+    }
 
     void HandleMouseDown()
     {
@@ -280,17 +300,17 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     private void HandleBuilding(TileBase tile, Vector3Int cellPos, GameMode.ActionType currentAction)
     {
+        if (playerTileObjectsMap.ContainsKey(cellPos))
+        {
+            return;
+        }
+
         string contraptionName = ToTileString(gameMode.currentAction);
         var prefabToSpawn = tilePrefabsMap[TrimTileName(contraptionName)];
 
         if (prefabToSpawn == null)
         {
             UnityEngine.Debug.Log("[HandleBuilding] Wrong tileName");
-            return;
-        }
-
-        if (FindObjectOfType<GameMode>().GetItemsLeft(contraptionName) == 0)
-        {
             return;
         }
 
@@ -313,6 +333,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         tilemap.SetTile(cellPos, component.tile);
         RotateTile(tilemap, cellPos, Quaternion.Euler(0, 0, gameMode.buildingRotation * 90));
 
+        component.wasBuiltByPlayer = true;
+        
         FindObjectOfType<GameMode>().ChangeItemCount(contraptionName, -1);
     }
 

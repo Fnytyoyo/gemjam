@@ -4955,7 +4955,7 @@ MonoBehaviour:
   tile: {fileID: 11400000, guid: e893cb6495425bf4a9f163ebcb42191d, type: 2}
   audioSource: {fileID: 0}
   explosionTime: 0.2
-  basePower: 60
+  basePower: 9
   maxRange: 4
   FalloffCoeff: 0.6
   readyColor: {r: 0.45740488, g: 0.8113208, b: 0.18752226, a: 0}

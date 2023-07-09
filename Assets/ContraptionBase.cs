@@ -9,6 +9,8 @@ public abstract class ContraptionBase : MonoBehaviour
 
     public TileBase tile;
 
+    public bool wasBuiltByPlayer = false;
+    
     public abstract void OnInteract(Vector3 pos, int rotation);
 
     public abstract void OnRecharge();
