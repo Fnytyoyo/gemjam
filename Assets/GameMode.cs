@@ -76,6 +76,8 @@ public class GameMode : MonoBehaviour
 
     void LoadLevel(int idx)
     {
+        isLevelFinished = false;
+
         interactableBlockCounter++;
 
         currentAction = ActionType.Interaction;
@@ -150,8 +152,11 @@ public class GameMode : MonoBehaviour
         Instantiate(PlayerPrefab, position, Quaternion.identity);
     }
 
+    private bool isLevelFinished = false;
+
     public void NextLevel()
     {
+        isLevelFinished = true;
         currentLevelIdx++;
         if (currentLevelIdx < Levels.Length)
         {
@@ -177,7 +182,7 @@ public class GameMode : MonoBehaviour
             return;
         }
 
-        if (currentStoryIdx < Levels[currentLevelIdx].Story.Count)
+        if (isLevelFinished == false && currentStoryIdx < Levels[currentLevelIdx].Story.Count)
         {
             if (isStoryPanelDisplayed)
             {
