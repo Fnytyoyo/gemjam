@@ -345,7 +345,7 @@ public class GameMode : MonoBehaviour
             return;
         }
 
-        dispatcher.RechargeAllContraptions();
+        dispatcher.OnLevelReset();
 
         RespawnPlayer(currLevel.GetStartPosition());
 
