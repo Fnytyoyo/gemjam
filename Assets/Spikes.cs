@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class Spikes : ContraptionBase
 {
+    public AudioSource audioSource;
+
     public ParticleSystem particles;
     
     public float maxDistance;
@@ -16,6 +18,7 @@ public class Spikes : ContraptionBase
     private void Start()
     {
         particles.Stop();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void OnRecharge()
@@ -54,6 +57,7 @@ public class Spikes : ContraptionBase
         if (active)
         {
             particles.Play();
+            audioSource.PlayOneShot(audioSource.clip);
         }
         else
         {
