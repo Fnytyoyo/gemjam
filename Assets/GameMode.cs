@@ -66,7 +66,8 @@ public class GameMode : MonoBehaviour
 
         currentLevelIdx = 0;
 
-        interactableBlockCounter = 0;
+        interactableBlockCounter = 1; //Don't ask...
+        Unpause();
         LoadLevel(currentLevelIdx);
 
         buildingRotation = 0;
