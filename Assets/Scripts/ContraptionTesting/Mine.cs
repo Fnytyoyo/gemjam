@@ -10,6 +10,9 @@ public class Mine : ContraptionBase
     public float explosionTime = 0.2f;
     public float basePower = 30.0f;
 
+    public float maxRange = 4.0f;
+    public float FalloffCoeff = 0.6f;
+
     public Color readyColor;
     public Color usedColor;
 
@@ -37,9 +40,12 @@ public class Mine : ContraptionBase
         var distance = (limb.position - actualExplosionPositionWithOffsetFromRotation).magnitude;
         var forceDirection = (limb.position - actualExplosionPositionWithOffsetFromRotation).normalized;
 
-        var distanceModifier = 1 / distance;
-        var timeModifier = 1 - Mathf.Pow((time / explosionTime), 2);
         
+        var distanceModifier = distance > maxRange ? 0 : 1 / (1 + Mathf.Exp(FalloffCoeff * maxRange * (distance - maxRange / 2)));
+        var timeModifier = 1 - Mathf.Pow((time / explosionTime), 2);
+
+        Debug.Log($"Distance: {distance}; DistMod: {distanceModifier}");
+
         limb.AddForce(forceDirection * basePower * distanceModifier * timeModifier);
     }
     

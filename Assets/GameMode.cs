@@ -66,7 +66,8 @@ public class GameMode : MonoBehaviour
 
         currentLevelIdx = 0;
 
-        interactableBlockCounter = 0;
+        interactableBlockCounter = 1; //Don't ask...
+        Unpause();
         LoadLevel(currentLevelIdx);
 
         buildingRotation = 0;
@@ -94,6 +95,18 @@ public class GameMode : MonoBehaviour
         Vector3 newCameraPos = levelBounds.center;
         newCameraPos.z = -1;
         Camera.main.transform.position = newCameraPos;
+
+        float height = (levelBounds.size.y + 2);
+        Camera.main.orthographicSize = height / 2;
+
+        float cameraDisplayWidth = Camera.main.aspect * height;
+        float targetWidth = (levelBounds.size.x + 2);
+
+        if (targetWidth > cameraDisplayWidth)
+        {
+            Camera.main.orthographicSize = (targetWidth / Camera.main.aspect) / 2;
+        }
+
 
         inventoryItemsLeft.Clear();
         foreach (var item in newLevel.Inventory)
@@ -157,8 +170,8 @@ public class GameMode : MonoBehaviour
 
     void Update()
     {
-        if (currentLevelIdx >= Levels.Length )
-        {
+        if (currentLevelIdx >= Levels.Length)
+        { 
             return;
         }
 
