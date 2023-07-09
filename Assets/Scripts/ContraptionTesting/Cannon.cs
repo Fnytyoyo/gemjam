@@ -11,11 +11,21 @@ public class Cannon : ContraptionBase
 
     public GameObject directionGO;
     private Vector2 position;
+
+    public float Cooldown = 0.7f;
+
+    private float timeSinceLastShot = 0;
     
     void Start()
     {
         position = new Vector2(transform.position.x, transform.position.y);
         audioSource = GetComponent<AudioSource>();
+        timeSinceLastShot = Cooldown;
+    }
+
+    private void Update()
+    {
+        timeSinceLastShot += Time.deltaTime;
     }
 
     public override void OnRecharge()
@@ -25,6 +35,12 @@ public class Cannon : ContraptionBase
 
     public override void OnInteract(Vector3 pos, int rotation)
     {
+        if(timeSinceLastShot < Cooldown)
+        {
+            return;
+        }
+
+        timeSinceLastShot = 0;
         GameObject newBullet = Instantiate(bullet, position, Quaternion.identity);
 
         Vector2 direction = new Vector2();
@@ -45,7 +61,6 @@ public class Cannon : ContraptionBase
                 direction = new Vector2(1, 0);
                 break;
         }
-        Debug.Log(direction);
 
         var rb = newBullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * 10;

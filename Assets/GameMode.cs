@@ -225,6 +225,11 @@ public class GameMode : MonoBehaviour
             }
         }
 
+        if (!IsInteractable)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             AddToBuildingRotation(-1);
@@ -238,11 +243,6 @@ public class GameMode : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             ResetLevel();
-        }
-
-        if (!IsInteractable)
-        {
-            return;
         }
 
         if (Input.anyKeyDown)

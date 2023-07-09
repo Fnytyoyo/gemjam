@@ -207,6 +207,15 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
             _OverlayLayer.SetTileColor(cellPos, Color.black);
             _OverlayLayer.SetRotation(cellPos, Quaternion.Euler(0, 0, gameMode.buildingRotation * 90));
+
+            if (gameMode.CanBuildOn(cellPos, gameMode.buildingRotation))
+            {
+                _OverlayLayer.SetTileColor(cellPos, Color.green);
+            }
+            else
+            {
+                _OverlayLayer.SetTileColor(cellPos, Color.red);
+            }
         }
 
         lastPos = cellPos;

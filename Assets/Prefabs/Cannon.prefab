@@ -52,6 +52,7 @@ MonoBehaviour:
   tile: {fileID: 11400000, guid: 51cfd4085940fa54793fa082b187d0b7, type: 2}
   bullet: {fileID: 1878824446873905951, guid: 13c5e551e4ddf6841ba70c9b234a4515, type: 3}
   directionGO: {fileID: 8712809263188214013}
+  Cooldown: 0.3
 --- !u!212 &4071089566128043905
 SpriteRenderer:
   m_ObjectHideFlags: 0
