@@ -15,4 +15,10 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void Restart()
+    {
+        FindObjectOfType<GameMode>().Unpause();
+        FindObjectOfType<GameMode>().ResetLevel();
+    }
 }
