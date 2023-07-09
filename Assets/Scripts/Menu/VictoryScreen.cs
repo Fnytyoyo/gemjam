@@ -7,6 +7,6 @@ public class VictoryScreen : MonoBehaviour
 {
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Credits");
     }
 }
