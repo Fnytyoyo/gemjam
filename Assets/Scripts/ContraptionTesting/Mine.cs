@@ -51,7 +51,7 @@ public class Mine : ContraptionBase
 
         
         var distanceModifier = distance > maxRange ? 0 : 1 / (1 + Mathf.Exp(FalloffCoeff * maxRange * (distance - maxRange / 2)));
-        var timeModifier = 1 - Mathf.Pow((time / explosionTime), 2);
+        var timeModifier = 0.25f;
 
         Debug.Log($"Distance: {distance}; DistMod: {distanceModifier}");
 
