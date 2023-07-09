@@ -23,6 +23,7 @@ public class Mine : ContraptionBase
 
     private Vector2 actualExplosionPositionWithOffsetFromRotation;
 
+    private bool tileHidden;
     private bool readyToUse;
 
     private Matrix4x4 savedTileMatrix;
@@ -31,6 +32,7 @@ public class Mine : ContraptionBase
     {
         position = new Vector2(this.transform.position.x, this.transform.position.y);
         readyToUse = true;
+        tileHidden = false;
     }
 
     public override void OnRecharge()
@@ -121,20 +123,30 @@ public class Mine : ContraptionBase
 
     void HideThisTile()
     {
-        var tm = GetParentTilemap();
-        var coords = tm.WorldToCell(transform.position);
+        if (tileHidden == false)
+        {
+            var tm = GetParentTilemap();
+            var coords = tm.WorldToCell(transform.position);
 
-        savedTileMatrix = tm.GetTransformMatrix(coords);
+            savedTileMatrix = tm.GetTransformMatrix(coords);
 
-        tm.SetTile(coords, null);
+            tm.SetTile(coords, null);
+
+            tileHidden = true;
+        }
     }
 
     void ShowThisTile()
     {
-        var tm = GetParentTilemap();
-        var coords = tm.WorldToCell(transform.position);
+        if (tileHidden == true)
+        {
+            var tm = GetParentTilemap();
+            var coords = tm.WorldToCell(transform.position);
 
-        tm.SetTile(coords, tile);
-        tm.SetTransformMatrix(coords, savedTileMatrix);
+            tm.SetTile(coords, tile);
+            tm.SetTransformMatrix(coords, savedTileMatrix);
+
+            tileHidden = false;
+        }
     }
 }
