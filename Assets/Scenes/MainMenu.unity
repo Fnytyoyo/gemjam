@@ -1402,7 +1402,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 520.69, y: 91.5}
+  m_SizeDelta: {x: 1200, y: 91.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755063544
 MonoBehaviour:
@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: robot yeet
+  m_text: <color=#feae34>a</color>ndroid <color=#feae34>f</color>actory <color=#feae34>k</color>eeper
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 837c5395fb823004487d5d6deae50c40, type: 2}
   m_sharedMaterial: {fileID: 8395039893964869343, guid: 837c5395fb823004487d5d6deae50c40, type: 2}
