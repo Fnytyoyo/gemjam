@@ -25304,6 +25304,187 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mine_Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Inventory.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[3].IsPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[4].IsPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[5].IsPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[8].IsPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].StoryText
+      value: Welcome new recruit to the most advanced Android Factory in the whole
+        wide world.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[15].IsPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[1].StoryText
+      value: Your job here is to patrol the factory rooms and make sure that everything
+        is in order.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[2].StoryText
+      value: Once you get through all of the rooms your shift is over. Make the company
+        proud!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[3].StoryText
+      value: Any questions?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[4].StoryText
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[5].StoryText
+      value: Hmm... but how do I control the game? Nothing seems to be working...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[6].StoryText
+      value: What do you mean nothing is working? Don't be ridiculous!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[7].StoryText
+      value: 'Just use the arrow keys to move around and space to jump through the
+        gaps.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[8].StoryText
+      value: Well, it still is not working for me. Are you sure that the game doesn't
+        have a bug or something?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[9].StoryText
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[10].StoryText
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[11].StoryText
+      value: Damn it... Now that I think about it we seem to have forgotten to implement
+        the controls, oopsie.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[12].StoryText
+      value: Well, nothing that can't be fixed with a bit of brute force. Let's see
+        what we have at our disposal.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[13].StoryText
+      value: 'Some magnets, mines, oh and a bit of deadly lasers. That will do the
+        trick.
+
+        You just sit back and enjoy the view and we will get the
+        robot to the exit by the sheer power of violence.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[14].StoryText
+      value: Let's roll (reverse)!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[15].StoryText
+      value: Ok...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[1].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[2].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[3].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[4].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[5].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[6].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[7].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[8].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[9].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[10].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[11].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[12].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[13].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[14].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[15].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Inventory.Array.data[3].Shortcut
+      value: R
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Inventory.Array.data[3].ContraptionName
+      value: Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Inventory.Array.data[3].ContraptionSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4fca490db0f53d444921531504cfcaaa, type: 3}
     - target: {fileID: 8992398305686883328, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_RootOrder
       value: 0

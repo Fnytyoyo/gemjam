@@ -12,6 +12,8 @@ public class StoryArea : MonoBehaviour
 
     public void SetText(string text, bool isPlayer)
     {
+        StoryTextTMP.text = "";
+
         if (isPlayer == true)
         {
             StoryTextTMP.text = "PLAYER: ";
