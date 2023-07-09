@@ -8,6 +8,8 @@ using UnityEngine.Tilemaps;
 
 public class Mine : ContraptionBase
 {
+    public AudioSource audioSource;
+    
     public float explosionTime = 0.2f;
     public float basePower = 30.0f;
 
@@ -31,6 +33,7 @@ public class Mine : ContraptionBase
     void Start()
     {
         position = new Vector2(this.transform.position.x, this.transform.position.y);
+        audioSource = GetComponent<AudioSource>();
         readyToUse = true;
         tileHidden = false;
     }
@@ -66,6 +69,7 @@ public class Mine : ContraptionBase
     IEnumerator Explode()
     {
         var time = 0.0f;
+        audioSource.PlayOneShot(audioSource.clip);
         while (time < explosionTime)
         {
             ApplyForces(time);
