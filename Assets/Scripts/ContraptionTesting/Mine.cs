@@ -8,6 +8,8 @@ using UnityEngine.Tilemaps;
 
 public class Mine : ContraptionBase
 {
+    public GameObject particlesPrefab;
+    public GameObject particlesPos;
     public AudioSource audioSource;
     
     public float explosionTime = 0.2f;
@@ -18,8 +20,6 @@ public class Mine : ContraptionBase
 
     public Color readyColor;
     public Color usedColor;
-
-    public ParticleSystem particles;
 
     private Vector2 position;
 
@@ -90,12 +90,14 @@ public class Mine : ContraptionBase
             Vector2 offset = offsetDir * offsetDist;
             actualExplosionPositionWithOffsetFromRotation = position + offset;
 
-            particles.gameObject.transform.SetLocalPositionAndRotation(new Vector2(0, -offsetDist), Quaternion.identity);
+            //particles.gameObject.transform.SetLocalPositionAndRotation(new Vector2(0, -offsetDist), Quaternion.identity);
 
             Debug.Log("Mine explosion");
             readyToUse = false;
-            particles.Play();
-            audioSource.Play();
+            
+            GameObject go = Instantiate(particlesPrefab, new Vector3(particlesPos.transform.position.x, particlesPos.transform.position.y, 0), Quaternion.identity);
+            go.GetComponent<AudioSource>().Play();
+            
             ApplyForces();
 
             if (wasBuiltByPlayer == true)
