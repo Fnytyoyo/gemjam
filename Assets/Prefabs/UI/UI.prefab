@@ -2924,6 +2924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoryTextTMP: {fileID: 4418674081977044169}
+  playerColor: {r: 0.2028302, g: 1, b: 0.32144308, a: 1}
+  gameSystemColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &8529097475353312995
 MonoBehaviour:
   m_ObjectHideFlags: 0

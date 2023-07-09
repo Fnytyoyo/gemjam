@@ -22,6 +22,7 @@ public class Level : MonoBehaviour
         [Multiline]
         public string StoryText = "";
         public float WaitBefore = 0.5f;
+        public bool IsPlayer = false;
     }
 
     public Tilemap contraptionTilemap;
