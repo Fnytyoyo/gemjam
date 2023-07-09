@@ -353,5 +353,11 @@ public class GameMode : MonoBehaviour
         {
             Destroy(blt.gameObject);
         }
+
+        inventoryItemsLeft.Clear();
+        foreach (var item in Levels[currentLevelIdx].Inventory)
+        {
+            inventoryItemsLeft.Add(item.ContraptionName, item.Count);
+        }
     }
 }

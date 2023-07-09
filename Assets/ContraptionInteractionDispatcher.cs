@@ -100,14 +100,15 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         if (playerTileObjectsMap.ContainsKey(cellPos))
         {
             var obj = playerTileObjectsMap[cellPos];
-            GameObject.Destroy(obj);
             tilemap.SetTile(cellPos, null);
 
-            var component = obj.GetComponent<ContraptionBase>();
-            if (component != null)
-            {
-                gameMode.ChangeItemCount(TrimTileName(component.tile.name), +1);
-            }
+            //var component = obj.GetComponent<ContraptionBase>();
+            //if (component != null)
+            //{
+            //    gameMode.ChangeItemCount(TrimTileName(component.tile.name), +1);
+            //}
+
+            GameObject.Destroy(obj);
         }
     }
     
