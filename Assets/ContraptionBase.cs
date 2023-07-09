@@ -10,4 +10,6 @@ public abstract class ContraptionBase : MonoBehaviour
     public TileBase tile;
 
     public abstract void OnInteract(Vector3 pos, int rotation);
+
+    public abstract void OnRecharge();
 }

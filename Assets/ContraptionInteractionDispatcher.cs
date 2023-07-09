@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -27,10 +28,43 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     public GameObject cannonPrefab;
 
     public Dictionary<string, GameObject> tilePrefabsMap = new Dictionary<string, GameObject>();
-    
-    public Dictionary<Vector3Int, GameObject> tileObjectsMap = new Dictionary<Vector3Int, GameObject>();
+
+    public Dictionary<Vector3Int, GameObject> tileObjectsMap;
 
     public Dictionary<Vector3Int, GameObject> playerTileObjectsMap = new Dictionary<Vector3Int, GameObject>();
+
+    public void RechargePlayerContraptions()
+    {
+        CallOnRecharge(playerTileObjectsMap);
+    }
+
+    public void RechargeOnLevelContraptions()
+    {
+        CallOnRecharge(tileObjectsMap);
+    }
+
+    public static void CallOnRecharge(Dictionary<Vector3Int, GameObject> tileObjects)
+    {
+        UnityEngine.Debug.Log("[CallOnRecharge] STOSUNEK SEKUALNY " + tileObjects.Count);
+
+        foreach (var c in tileObjects.Values)
+        {
+            var component = c.GetComponent<ContraptionBase>();
+            if (component == null)
+            {
+                UnityEngine.Debug.Log("[CallOnRecharge] GameObject had not ContraptionBase component");
+                continue;
+            }
+
+            component.OnRecharge();
+        }
+    }
+
+    public void RechargeAllContraptions()
+    {
+        RechargePlayerContraptions();
+        RechargeOnLevelContraptions();
+    }
 
     void HandleMouseDown()
     {
@@ -49,7 +83,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                 HandleBuilding(tile, cellPos, gameMode.currentAction);
                 break;
             default:
-                Debug.Log("[ContraptionInteractionDispatcher::OnMouseDown()] Unknown ActionType");
+                UnityEngine.Debug.Log("[ContraptionInteractionDispatcher::OnMouseDown()] Unknown ActionType");
                 break;
         }
     }
@@ -61,11 +95,11 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         Matrix4x4 newMatrix = Matrix4x4.TRS(oldMatrix.GetPosition(), rotation, new Vector3(1, 1, 1));
         tilemap.SetTransformMatrix(coord, newMatrix);
     }
-    
+
     private string TrimTileName(string tileName)
     {
         int floorPos = tileName.IndexOf(TRIM_CHAR);
-        if(floorPos == -1)
+        if (floorPos == -1)
         {
             return tileName;
         }
@@ -76,6 +110,8 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
     {
         gameMode = FindObjectOfType<GameMode>();
 
+        tileObjectsMap = new Dictionary<Vector3Int, GameObject>();
+
         Camera.main.eventMask &= ~(1 << LayerMask.NameToLayer("Ragdoll"));
 
         tilePrefabsMap.Add("Mine", minePrefab);
@@ -84,7 +120,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         tilePrefabsMap.Add("Cannon", cannonPrefab);
 
         tilemap = gameObject.GetComponent<Tilemap>();
-        cellHalfSize = tilemap.cellSize/2;
+        cellHalfSize = tilemap.cellSize / 2;
         lastPos = null;
 
         for (int i = tilemap.cellBounds.xMin; i < tilemap.cellBounds.xMax; ++i)
@@ -102,17 +138,22 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
                         var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords) + cellHalfSize, Quaternion.identity);
 
                         tileObjectsMap.Add(tileGridCoords, newObj);
+                        UnityEngine.Debug.Log("SEEEEEEEEEEEEEEEKS B)");
                     }
                 }
 
             }
         }
+
+        UnityEngine.Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAasdasd");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(FindObjectOfType<GameMode>().IsInteractable == false)
+        UnityEngine.Debug.Log("--------------" + tileObjectsMap.Count);
+
+        if (FindObjectOfType<GameMode>().IsInteractable == false)
         {
             _OverlayLayer.Clear();
             return;
@@ -183,16 +224,16 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
         if (prefabToSpawn == null)
         {
-            Debug.Log("[HandleBuilding] Wrong tileName");
+            UnityEngine.Debug.Log("[HandleBuilding] Wrong tileName");
             return;
         }
 
-        if(FindObjectOfType<GameMode>().GetItemsLeft(contraptionName) == 0)
+        if (FindObjectOfType<GameMode>().GetItemsLeft(contraptionName) == 0)
         {
             return;
         }
 
-        var chosenRotation = gameMode.buildingRotation; 
+        var chosenRotation = gameMode.buildingRotation;
         if (gameMode.CanBuildOn(cellPos, chosenRotation) == false)
         {
             return;
@@ -204,7 +245,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         var component = newObj.GetComponent<ContraptionBase>();
         if (component == null)
         {
-            Debug.Log("[HandleBuilding] ContraptionBase component not found");
+            UnityEngine.Debug.Log("[HandleBuilding] ContraptionBase component not found");
             return;
         }
 
@@ -233,7 +274,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     public GameObject GetTileObject(Vector3Int gridCoords)
     {
-        if (playerTileObjectsMap.ContainsKey(gridCoords)) 
+        if (playerTileObjectsMap.ContainsKey(gridCoords))
         {
             return playerTileObjectsMap[gridCoords];
         }

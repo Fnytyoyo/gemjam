@@ -17,6 +17,11 @@ public class Spikes : ContraptionBase
         Active = false;
     }
 
+    public override void OnRecharge()
+    {
+        throw new NotImplementedException();
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if(!Active) return;

@@ -14,16 +14,21 @@ public class Mine : ContraptionBase
     public Color usedColor;
 
     public ParticleSystem particles;
-    
+
     private Vector2 position;
 
     private Vector2 actualExplosionPositionWithOffsetFromRotation;
 
     private bool readyToUse;
-    
+
     void Start()
     {
         position = new Vector2(this.transform.position.x, this.transform.position.y);
+        readyToUse = true;
+    }
+
+    public override void OnRecharge()
+    {
         readyToUse = true;
     }
 
