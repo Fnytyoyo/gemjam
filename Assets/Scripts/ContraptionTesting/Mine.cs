@@ -44,37 +44,23 @@ public class Mine : ContraptionBase
         readyToUse = true;
     }
 
-    private void ApplyForce(Rigidbody2D limb, float time)
+    private void ApplyForce(Rigidbody2D limb)
     {
         var distance = (limb.position - actualExplosionPositionWithOffsetFromRotation).magnitude;
         var forceDirection = (limb.position - actualExplosionPositionWithOffsetFromRotation).normalized;
-
         
         var distanceModifier = distance > maxRange ? 0 : 1 / (1 + Mathf.Exp(FalloffCoeff * maxRange * (distance - maxRange / 2)));
-        var timeModifier = 1 - Mathf.Pow((time / explosionTime), 2);
 
         Debug.Log($"Distance: {distance}; DistMod: {distanceModifier}");
 
-        limb.AddForce(forceDirection * basePower * distanceModifier * timeModifier);
+        limb.AddForce(forceDirection * basePower * distanceModifier,  ForceMode2D.Impulse);
     }
     
-    private void ApplyForces(float time)
+    private void ApplyForces()
     {
         foreach (var limb in Limbs.limbRigidBodies)
         {
-            ApplyForce(limb, time);
-        }
-    }
-    
-    IEnumerator Explode()
-    {
-        var time = 0.0f;
-        audioSource.PlayOneShot(audioSource.clip);
-        while (time < explosionTime)
-        {
-            ApplyForces(time);
-            time += Time.deltaTime;
-            yield return null;
+            ApplyForce(limb);
         }
     }
     
@@ -109,9 +95,17 @@ public class Mine : ContraptionBase
             Debug.Log("Mine explosion");
             readyToUse = false;
             particles.Play();
-            StartCoroutine(Explode());
+            ApplyForces();
 
-            HideThisTile();
+            if (wasBuiltByPlayer == true)
+            {
+                var dispatcher = FindObjectOfType<ContraptionInteractionDispatcher>();
+                dispatcher.RemoveBuilding(transform.position);
+            }
+            else
+            { 
+                HideThisTile();   
+            }
         }
     }
     
