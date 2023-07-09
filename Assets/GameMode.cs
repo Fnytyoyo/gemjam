@@ -335,9 +335,9 @@ public class GameMode : MonoBehaviour
         return true;
     }
 
-    void ResetLevel()
+    public void ResetLevel()
     {
-        var currLevel = FindObjectOfType<Level>(); ;
+        var currLevel = FindObjectOfType<Level>();
 
         var dispatcher = currLevel.contraptionTilemap.GetComponent<ContraptionInteractionDispatcher>();
         if (dispatcher == null)
@@ -348,5 +348,10 @@ public class GameMode : MonoBehaviour
         dispatcher.RechargeAllContraptions();
 
         RespawnPlayer(currLevel.GetStartPosition());
+
+        foreach(var blt in FindObjectsOfType<Bullet>())
+        {
+            Destroy(blt.gameObject);
+        }
     }
 }
