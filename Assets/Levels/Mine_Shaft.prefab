@@ -27060,6 +27060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mine_Shaft
       objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Inventory.Array.data[0].Count
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8992398305686883328, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_RootOrder
       value: 0
