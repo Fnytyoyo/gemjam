@@ -280,6 +280,14 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -0.17999983
       objectReference: {fileID: 0}
+    - target: {fileID: 2871369831358613620, guid: d418f048e45c14e41a189993c6351916, type: 3}
+      propertyPath: isTorso
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871369831358613620, guid: d418f048e45c14e41a189993c6351916, type: 3}
+      propertyPath: debugDowntime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4147528498673011058, guid: d418f048e45c14e41a189993c6351916, type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: -0.17999983
@@ -290,11 +298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6711595859619071001, guid: d418f048e45c14e41a189993c6351916, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.68127704
+      value: -0.72
       objectReference: {fileID: 0}
     - target: {fileID: 6711595859619071001, guid: d418f048e45c14e41a189993c6351916, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8354144
+      value: -2.898
       objectReference: {fileID: 0}
     - target: {fileID: 6711595859619071001, guid: d418f048e45c14e41a189993c6351916, type: 3}
       propertyPath: m_LocalPosition.z
@@ -332,6 +340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stickman
       objectReference: {fileID: 0}
+    - target: {fileID: 8492826070540128737, guid: d418f048e45c14e41a189993c6351916, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -348,7 +360,7 @@ GameObject:
   - component: {fileID: 1850757014}
   - component: {fileID: 1850757013}
   - component: {fileID: 1850757012}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +490,7 @@ GameObject:
   - component: {fileID: 1856082763}
   - component: {fileID: 1856082762}
   - component: {fileID: 1856082761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +620,7 @@ GameObject:
   - component: {fileID: 1884214087}
   - component: {fileID: 1884214086}
   - component: {fileID: 1884214085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

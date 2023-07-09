@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: BoneConfig
   m_EditorClassIdentifier: 
   targetRotation: 0
-  getUpTime: 2.5
+  getUpTime: 1.5
   velocityThreshold: 2.5
   maxForce: 100
-  getUpSpeed: 25
+  getUpSpeed: 20
+  swiftGetUp: 1
+  bodyMoveStrength: 15
+  bodyHeight: 1

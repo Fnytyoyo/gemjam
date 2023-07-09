@@ -500,7 +500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9bdb90ca8ae4e42a780004910c6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdollState: {fileID: 5533602265795981977}
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
+  isTorso: 0
   debugDowntime: 0
 --- !u!70 &7005273044882406134
 CapsuleCollider2D:
@@ -689,7 +691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9bdb90ca8ae4e42a780004910c6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdollState: {fileID: 5533602265795981977}
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
+  isTorso: 0
   debugDowntime: 0
 --- !u!70 &7959705062909749212
 CapsuleCollider2D:
@@ -856,7 +860,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.14}
-  m_ConnectedAnchor: {x: 0, y: -0.12599999}
+  m_ConnectedAnchor: {x: 0, y: -0.12599993}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1027,7 +1031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9bdb90ca8ae4e42a780004910c6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdollState: {fileID: 5533602265795981977}
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
+  isTorso: 1
   debugDowntime: 0
 --- !u!114 &8492826070540128737
 MonoBehaviour:
@@ -1036,7 +1042,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3408092596044721544}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87c3235c7f241f840a2f7f652f949799, type: 3}
   m_Name: 
@@ -1209,7 +1215,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.17}
-  m_ConnectedAnchor: {x: 0, y: -0.18000019}
+  m_ConnectedAnchor: {x: 0, y: -0.17999983}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1230,7 +1236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9bdb90ca8ae4e42a780004910c6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdollState: {fileID: 5533602265795981977}
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
+  isTorso: 0
   debugDowntime: 0
 --- !u!61 &1628172012319127747
 BoxCollider2D:
@@ -1408,7 +1416,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.17}
-  m_ConnectedAnchor: {x: 0, y: -0.18000019}
+  m_ConnectedAnchor: {x: 0, y: -0.17999983}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1429,7 +1437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9bdb90ca8ae4e42a780004910c6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdollState: {fileID: 5533602265795981977}
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
+  isTorso: 0
   debugDowntime: 0
 --- !u!61 &4640081274452037925
 BoxCollider2D:
@@ -1628,7 +1638,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9bdb90ca8ae4e42a780004910c6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ragdollState: {fileID: 5533602265795981977}
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
+  isTorso: 0
   debugDowntime: 0
 --- !u!58 &5726026920545586917
 CircleCollider2D:
@@ -1675,6 +1687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6711595859619071001}
   - component: {fileID: 2984963077990048360}
+  - component: {fileID: 5533602265795981977}
   m_Layer: 3
   m_Name: Stickman
   m_TagString: Player
@@ -1705,7 +1718,7 @@ Transform:
   - {fileID: 1714183734083863306}
   - {fileID: 3811253331499381149}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2984963077990048360
 MonoBehaviour:
@@ -1719,6 +1732,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64fd76d45d8cc4047832c15a0831d12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5533602265795981977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860279579350429582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc6a8eb9133f87408eb851994a0694c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeToNeutralState: 2
 --- !u!1 &8080491711282756366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,7 +1875,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0.14}
-  m_ConnectedAnchor: {x: 0, y: -0.12599999}
+  m_ConnectedAnchor: {x: 0, y: -0.12599993}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

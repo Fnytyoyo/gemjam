@@ -11,4 +11,7 @@ public class BoneBalanceConfig : ScriptableObject
     public float velocityThreshold = 2f;
     public float maxForce = 75f;
     public float getUpSpeed = 15f;
+    public bool swiftGetUp = false;
+    public float bodyMoveStrength = 5f;
+    public float bodyHeight = 1f;
 }
