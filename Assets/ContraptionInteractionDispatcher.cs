@@ -138,7 +138,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
                         var newObj = Instantiate(prefabToSpawn, tilemap.CellToWorld(tileGridCoords) + cellHalfSize, tilemap.GetTransformMatrix(tileGridCoords).rotation);
 
-                        tileObjectsMap.Add(tileGridCoords, newObj)
+                        tileObjectsMap.Add(tileGridCoords, newObj);
                     }
                 }
 
