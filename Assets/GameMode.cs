@@ -205,7 +205,7 @@ public class GameMode : MonoBehaviour
                 {
                     var sa = GameObject.FindObjectOfType<StoryArea>(true);
                     sa.gameObject.SetActive(true);
-                    sa.SetText(Levels[currentLevelIdx].Story[currentStoryIdx].StoryText);
+                    sa.SetText(Levels[currentLevelIdx].Story[currentStoryIdx].StoryText, Levels[currentLevelIdx].Story[currentStoryIdx].IsPlayer);
                     isStoryPanelDisplayed = true;
                 }
             }

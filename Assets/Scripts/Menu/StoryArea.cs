@@ -7,9 +7,21 @@ public class StoryArea : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI StoryTextTMP;
 
-    public void SetText(string text)
+    public Color playerColor = new Color(0f, 0f, 1f, 1f);
+    public Color gameSystemColor = new Color(1f, 0f, 0f, 1f);
+
+    public void SetText(string text, bool isPlayer)
     {
         StoryTextTMP.text = text;
+
+        if (isPlayer)
+        {
+            StoryTextTMP.color = playerColor;
+        }
+        else
+        {
+            StoryTextTMP.color = gameSystemColor;
+        }
     }
 
     // Update is called once per frame
