@@ -15,6 +15,7 @@ public class Spikes : ContraptionBase
     
     private void Start()
     {
+        particles.Stop();
     }
 
     public override void OnRecharge()
