@@ -78,6 +78,8 @@ public class GameMode : MonoBehaviour
     {
         interactableBlockCounter++;
 
+        currentAction = ActionType.Interaction;
+
         var currLevelGO = FindObjectOfType<Level>();
 
         if (currLevelGO)
