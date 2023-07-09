@@ -67,7 +67,7 @@ public class Level : MonoBehaviour
 
         foreach (var tm in GetComponentsInChildren<Tilemap>())
         {
-            if(tm.gameObject.name == "Background")
+            if(tm.gameObject.name != "Background")
             {
                 continue;
             }

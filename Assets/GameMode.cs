@@ -95,11 +95,11 @@ public class GameMode : MonoBehaviour
         newCameraPos.z = -1;
         Camera.main.transform.position = newCameraPos;
 
-        float height = (levelBounds.size.y - 2);
+        float height = (levelBounds.size.y + 2);
         Camera.main.orthographicSize = height / 2;
 
         float cameraDisplayWidth = Camera.main.aspect * height;
-        float targetWidth = (levelBounds.size.x - 2);
+        float targetWidth = (levelBounds.size.x + 2);
 
         if (targetWidth > cameraDisplayWidth)
         {
