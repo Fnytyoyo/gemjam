@@ -12,8 +12,9 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.transform.parent = null; // Become Batman!
-            Destroy(transform.GetChild(i).gameObject);
+            GameObject childGo = transform.GetChild(i).gameObject;
+            childGo.transform.parent = null; // Become Batman!
+            Destroy(childGo);
         }
 
         {
