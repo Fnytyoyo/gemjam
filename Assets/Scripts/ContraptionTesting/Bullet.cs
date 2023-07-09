@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float force = 1000.0f;
+    public float force = 3600.0f;
     
     void Update()
     {
