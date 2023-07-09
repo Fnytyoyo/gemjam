@@ -38,8 +38,8 @@ public class BoneBalance : MonoBehaviour
                     if (hit.collider != null)
                     {
                         float targetHeight = hit.point.y + balanceConfig.bodyHeight;
-                        float pos_y = Mathf.Lerp(rb.position.y, targetHeight + 0.15f,
-                            Mathf.Abs(targetHeight + 0.15f - rb.position.y) * balanceConfig.bodyMoveStrength * Time.deltaTime);
+                        float pos_y = Mathf.Lerp(rb.position.y, targetHeight + balanceConfig.bodyHeightBias,
+                            Mathf.Abs(targetHeight + balanceConfig.bodyHeightBias - rb.position.y) * balanceConfig.bodyMoveStrength * Time.deltaTime);
                         pos_vec.Set(rb.position.x, pos_y);
                         if(rb.position.y < targetHeight)
                             rb.MovePosition(pos_vec);

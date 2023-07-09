@@ -18,5 +18,6 @@ MonoBehaviour:
   maxForce: 100
   getUpSpeed: 20
   swiftGetUp: 1
-  bodyMoveStrength: 15
   bodyHeight: 1
+  bodyHeightBias: 0.2
+  bodyMoveStrength: 15
