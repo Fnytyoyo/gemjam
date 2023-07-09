@@ -1,4 +1,5 @@
 using System;
+using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -33,7 +34,22 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
 
     public Dictionary<Vector3Int, GameObject> playerTileObjectsMap = new Dictionary<Vector3Int, GameObject>();
 
-    public void RechargePlayerContraptions()
+    void OnDestroy()
+    {
+        foreach (var c in tileObjectsMap.Values)
+        {
+            GameObject.Destroy(c);
+        }
+        tileObjectsMap.Clear();
+
+        foreach (var c in playerTileObjectsMap.Values)
+        {
+            GameObject.Destroy(c);
+        }
+        playerTileObjectsMap.Clear();
+    }
+
+        public void RechargePlayerContraptions()
     {
         CallOnRecharge(playerTileObjectsMap);
     }
@@ -65,6 +81,17 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         RechargePlayerContraptions();
         RechargeOnLevelContraptions();
     }
+
+    // TODO WIP
+    //public void OnLevelReset()
+    //{
+    //    RechargeOnLevelContraptions();
+    //
+    //    foreach (var c in playerTileObjectsMap.Values)
+    //    {
+    //        HandleRemoveBuilding();
+    //    }
+    //}
 
     void HandleRemoveBuilding(TileBase tile, Vector3Int cellPos)
     {
@@ -102,10 +129,13 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            HandleRemoveBuilding(tile, cellPos);
-        }
+        /*
+         * Goodnight sweet prince ;-;
+         */
+         //if (Input.GetMouseButtonDown(1))
+         //{
+         //    HandleRemoveBuilding(tile, cellPos);
+         //}
     }
 
     // Helper
