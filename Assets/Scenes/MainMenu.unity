@@ -192,7 +192,7 @@ Canvas:
   m_GameObject: {fileID: 243956063}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1346705297}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1356,6 +1356,10 @@ PrefabInstance:
     - target: {fileID: 7860279579350429582, guid: ceb2d489c0299aa44a16bb5f76c49220, type: 3}
       propertyPath: m_Name
       value: Stickman_Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7860279579350429582, guid: ceb2d489c0299aa44a16bb5f76c49220, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
