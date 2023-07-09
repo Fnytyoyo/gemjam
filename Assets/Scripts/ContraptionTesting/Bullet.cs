@@ -12,9 +12,10 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        Vector2 direction = GetComponent<Rigidbody2D>().velocity.normalized;
         if (col.gameObject.layer == LayerMask.NameToLayer("Ragdoll"))
         {
-            col.gameObject.GetComponent<Rigidbody2D>().AddForce((col.gameObject.transform.position - transform.position) * 5000);
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * 5000);
         }
         
         Destroy(this.gameObject);
