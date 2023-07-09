@@ -27856,6 +27856,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Magnet_Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].StoryText
+      value: "Hmm\u2026 Magnets could be useful to move the player around. I can
+        toggle them by clicking on them in activation mode.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8992398305686883328, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_RootOrder
       value: 0

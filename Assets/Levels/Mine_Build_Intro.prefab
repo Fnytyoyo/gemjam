@@ -23981,8 +23981,30 @@ PrefabInstance:
       value: Mine_Build_Intro
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Inventory.Array.data[0].Count
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].StoryText
+      value: Oh, we have some mines in our supplies. I can use W to switch to placing
+        them and put them to some good use. I can even rotate them using Z/X and
+        place them on the walls and ceiling.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[1].StoryText
+      value: When I want to go back to activating stuff I can always press Q.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[1].WaitBefore
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8992398305686883328, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_RootOrder

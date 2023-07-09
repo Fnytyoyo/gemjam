@@ -95,6 +95,7 @@ public class Mine : ContraptionBase
             Debug.Log("Mine explosion");
             readyToUse = false;
             particles.Play();
+            audioSource.Play();
             ApplyForces();
 
             if (wasBuiltByPlayer == true)
