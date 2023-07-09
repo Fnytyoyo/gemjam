@@ -141,6 +141,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
         {
             _OverlayLayer.Set(cellPos, GetPreviewTileForAction(gameMode.currentAction));
             _OverlayLayer.SetTileColor(cellPos, Color.black);
+            _OverlayLayer.SetRotation(cellPos, Quaternion.Euler(0, 0, gameMode.buildingRotation * 90));
         }
 
         lastPos = cellPos;
@@ -183,7 +184,7 @@ public class ContraptionInteractionDispatcher : MonoBehaviour
             return;
         }
 
-        var chosenRotation = 0; // TODO(RCh): user should provide this 
+        var chosenRotation = gameMode.buildingRotation; 
         if (gameMode.CanBuildOn(cellPos, chosenRotation) == false)
         {
             return;

@@ -23,6 +23,9 @@ public class GameMode : MonoBehaviour
     public Level[] Levels;
     public GameObject PlayerPrefab;
 
+    public int buildingRotation { get; private set; }
+    public int buildingRotationsCount { get; private set; }
+
     public enum ActionType { Interaction, BuildMine, BuildSpikes, BuildCannon, BuildJumpPad };
 
     public ActionType currentAction { get; private set; } = ActionType.Interaction;
@@ -39,7 +42,7 @@ public class GameMode : MonoBehaviour
 
     public void ChangeItemCount(string contraptionName, int delta)
     {
-        if(inventoryItemsLeft.ContainsKey(contraptionName) == false)
+        if (inventoryItemsLeft.ContainsKey(contraptionName) == false)
         {
             Debug.LogError($"No contraption of this type: {contraptionName}");
             return;
@@ -65,6 +68,9 @@ public class GameMode : MonoBehaviour
 
         interactableBlockCounter = 0;
         LoadLevel(currentLevelIdx);
+
+        buildingRotation = 0;
+        buildingRotationsCount = 4;
     }
 
     void LoadLevel(int idx)
@@ -73,7 +79,7 @@ public class GameMode : MonoBehaviour
 
         var currLevelGO = FindObjectOfType<Level>();
 
-        if(currLevelGO)
+        if (currLevelGO)
         {
             GameObject.Destroy(currLevelGO.gameObject);
         }
@@ -100,7 +106,7 @@ public class GameMode : MonoBehaviour
         FindObjectOfType<Inventory>().gameObject.SetActive(false);
 
         currentStoryIdx = 0;
-        if(newLevel.Story.Count == 0)
+        if (newLevel.Story.Count == 0)
         {
             interactableBlockCounter--;
             GameObject.FindObjectOfType<Inventory>(true).gameObject.SetActive(true);
@@ -153,14 +159,14 @@ public class GameMode : MonoBehaviour
     {
         if (currentStoryIdx < Levels[currentLevelIdx].Story.Count)
         {
-            if(isStoryPanelDisplayed)
+            if (isStoryPanelDisplayed)
             {
-                if(Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     currentStoryIdx++;
                     isStoryPanelDisplayed = false;
 
-                    if(currentStoryIdx < Levels[currentLevelIdx].Story.Count)
+                    if (currentStoryIdx < Levels[currentLevelIdx].Story.Count)
                     {
                         storyTimer = Levels[currentLevelIdx].Story[currentStoryIdx].WaitBefore;
                     }
@@ -201,6 +207,16 @@ public class GameMode : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            AddToBuildingRotation(-1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            AddToBuildingRotation(1);
+        }
+
         if (!IsInteractable)
         {
             return;
@@ -213,7 +229,7 @@ public class GameMode : MonoBehaviour
                 if (Input.GetKeyDown(item.Key))
                 {
                     string contraptionName = ContraptionInteractionDispatcher.ToTileString(item.Value);
-                    if(contraptionName != "") // Do not check if interaction
+                    if (contraptionName != "") // Do not check if interaction
                     {
                         if (Levels[currentLevelIdx].Inventory.Find(e => e.ContraptionName == contraptionName).Count == 0)
                         {
@@ -226,6 +242,13 @@ public class GameMode : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AddToBuildingRotation(int ToAdd)
+    {
+        buildingRotation = (buildingRotation + ToAdd) % buildingRotationsCount;
+        buildingRotation = buildingRotation < 0 ? buildingRotation + buildingRotationsCount : buildingRotation;
+        Debug.Log(buildingRotation);
     }
 
     public void Unpause()
