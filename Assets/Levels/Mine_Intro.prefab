@@ -25429,7 +25429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[1].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[2].WaitBefore
