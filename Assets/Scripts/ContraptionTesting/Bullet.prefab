@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3409538611997350976}
   - component: {fileID: 6978464633731627293}
   - component: {fileID: 5321922241454730052}
-  - component: {fileID: 9138800534300617606}
+  - component: {fileID: 3087604072554182878}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -110,8 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e3a9e9a02066a49a58a25a7b12d84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  hit: 0
   force: 40
---- !u!82 &9138800534300617606
+  particlesPrefab: {fileID: 2377357350624849470, guid: d7f3edfd3adc40445a7d86fd3ca505fa, type: 3}
+--- !u!82 &3087604072554182878
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

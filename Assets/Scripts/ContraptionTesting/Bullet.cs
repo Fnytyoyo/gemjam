@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
     public bool hit = false;
     
     public float force = 40.0f;
+    public GameObject particlesPrefab;
+    
 
     private void Start()
     {
@@ -36,7 +38,8 @@ public class Bullet : MonoBehaviour
         {
             col.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition(direction * force, position, ForceMode2D.Impulse);
         }
-
+        
+        Instantiate(particlesPrefab, new Vector3(col.contacts[0].point.x, col.contacts[0].point.y, 0), Quaternion.identity);
         hit = true;
         spriteRenderer.enabled = false;
         audioSource.Play();
