@@ -23816,6 +23816,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannon_Intro
       objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].StoryText
+      value: LASER GUNS!!! Finally! I can activate them to fire. We had an increase
+        in funding last year so now they can fire infinitely.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[0].WaitBefore
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8992398305686883328, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: m_RootOrder
       value: 0

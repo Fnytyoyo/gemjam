@@ -25306,7 +25306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.size
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Inventory.Array.size
@@ -25336,6 +25336,10 @@ PrefabInstance:
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[15].IsPlayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[16].IsPlayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[1].StoryText
@@ -25414,64 +25418,82 @@ PrefabInstance:
       value: Ok...
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[16].StoryText
+      value: It's been a while since I last had to get my hands dirty. Let's see...
+        I can click on stuff to activate it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[17].StoryText
+      value: Let's try it with those mines... and in case I mess up I think I can
+        restart using H.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[1].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[2].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[3].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[4].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[5].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[6].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[7].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[8].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[9].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[10].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[11].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[12].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[13].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[14].WaitBefore
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Story.Array.data[15].WaitBefore
-      value: 1
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[16].WaitBefore
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
+      propertyPath: Story.Array.data[17].WaitBefore
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5892947127704820450, guid: 340d9c557499add469932279bc600909, type: 3}
       propertyPath: Inventory.Array.data[3].Shortcut
