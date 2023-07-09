@@ -914,7 +914,6 @@ GameObject:
   - component: {fileID: 7387588802093531730}
   - component: {fileID: 419873339206384073}
   - component: {fileID: 2871369831358613620}
-  - component: {fileID: 8492826070540128737}
   - component: {fileID: 7215184296161587837}
   - component: {fileID: 8857884436270363803}
   - component: {fileID: 7514303817000565863}
@@ -1034,20 +1033,6 @@ MonoBehaviour:
   balanceConfig: {fileID: 11400000, guid: b11a35bf555eacf4098c4c221e3b8495, type: 2}
   isTorso: 1
   debugDowntime: 0
---- !u!114 &8492826070540128737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3408092596044721544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c3235c7f241f840a2f7f652f949799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 60
-  angularForce: 1000
 --- !u!70 &7215184296161587837
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1096,7 +1081,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treshold: 1
-  maxVolume: 10
   cooldown: 0.25
 --- !u!82 &7514303817000565863
 AudioSource:
